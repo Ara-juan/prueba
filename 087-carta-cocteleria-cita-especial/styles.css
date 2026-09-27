@@ -1,0 +1,34 @@
+/* Carta de Coctelería (Cita Especial) · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--dark:#1e1420;--ink:#f2e8e0;--gold:#e8b84a;--rose:#ff8fab}
+html,body{min-height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 0,#2a1c2e,var(--dark) 70%);color:var(--ink);font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;padding:36px 16px;gap:8px}
+.menu-head{text-align:center;margin-bottom:20px}
+.menu-head .est{font-size:.68rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)}
+.menu-head h1{font-weight:normal;font-size:clamp(1.6rem,6vw,2.6rem);margin:8px 0 4px;letter-spacing:.04em}
+.menu-head p{font-style:italic;opacity:.65;font-size:.9rem;margin:0}
+.menu{width:min(560px,94vw);display:flex;flex-direction:column;gap:14px}
+.cocktail{display:flex;gap:16px;background:rgba(255,255,255,.04);border:1px solid rgba(232,184,74,.25);border-radius:14px;padding:16px 18px;cursor:pointer;transition:border-color .3s,transform .3s,background .3s;align-items:center}
+.cocktail:hover{border-color:var(--gold);transform:translateX(6px);background:rgba(255,255,255,.07)}
+.cocktail .glass{font-size:2.2rem;filter:drop-shadow(0 0 10px rgba(232,184,74,.4));min-width:56px;text-align:center}
+.cocktail .info{flex:1}
+.cocktail h2{margin:0;font-size:1.05rem;font-weight:normal;letter-spacing:.04em}
+.cocktail .ing{font-style:italic;font-size:.8rem;opacity:.65;margin-top:4px;line-height:1.6}
+.cocktail .price{color:var(--gold);font-size:.9rem;letter-spacing:.06em;white-space:nowrap}
+.order-note{margin-top:22px;text-align:center;font-style:italic;line-height:1.9;font-size:.95rem;max-width:520px;opacity:0;transform:translateY(12px);transition:opacity .7s,transform .7s}
+.order-note.show{opacity:1;transform:none}
+.order-note b{color:var(--rose)}
+.divider{width:120px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:26px 0 4px}
+.foot{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.5;text-align:center}

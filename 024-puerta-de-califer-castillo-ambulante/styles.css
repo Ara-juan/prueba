@@ -1,0 +1,30 @@
+/* Puerta de Calcifer (Castillo Ambulante) · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--wood:#4a3220;--brass:#c9a84c}
+html,body{height:100%}
+body{margin:0;background:#101418;font-family:Georgia,serif;color:#eee;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.world{position:fixed;inset:0;z-index:-1;transition:opacity 1.2s, filter 1.2s}
+.door-frame{position:relative;width:min(320px,74vw);height:min(470px,64vh);background:linear-gradient(180deg,#5d4128,#3a2818);border:10px solid #241708;border-radius:8px 8px 0 0;box-shadow:0 30px 70px rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
+.door{position:absolute;inset:0;background:linear-gradient(160deg,#6b4a2c,#46301b 60%,#3a2818);border-radius:4px 4px 0 0;transform-origin:left center;transition:transform 1.1s cubic-bezier(.6,0,.3,1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.door-frame.open .door{transform:perspective(900px) rotateY(-78deg)}
+.dial{width:120px;height:120px;border-radius:50%;background:conic-gradient(#e6c968,#8a6a2a,#e6c968,#5d4416,#e6c968);border:6px solid #241708;position:relative;box-shadow:0 8px 20px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.4);transition:transform .8s cubic-bezier(.3,1.4,.4,1)}
+.dial::after{content:"▲";position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:1.2rem;color:var(--brass);text-shadow:0 0 8px rgba(230,201,104,.8)}
+.door .label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);opacity:.9}
+.knob{position:absolute;right:14px;top:50%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f0d98a,#8a6a2a);box-shadow:0 2px 6px rgba(0,0,0,.6)}
+.world-name{font-size:1.15rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);text-shadow:0 0 16px rgba(230,201,104,.5);text-align:center;padding:0 16px}
+.story{max-width:min(560px,88vw);text-align:center;font-style:italic;line-height:1.7;opacity:.9;min-height:4.2em;padding:0 14px}
+.dial-strip{display:flex;gap:6px}
+.pip{width:9px;height:9px;border-radius:50%;border:1px solid var(--brass);transition:background .3s}
+.pip.on{background:var(--brass)}

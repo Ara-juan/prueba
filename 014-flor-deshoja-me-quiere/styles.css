@@ -1,0 +1,25 @@
+/* Flor Deshoja "¿Me quiere?" · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#fdf2f8;--ink:#6b2b45;--pink:#e75a8b}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#fff,#fce4ef);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none}
+h1{font-weight:normal;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.06em;margin:0 0 6px}
+.counter{font-style:italic;opacity:.7;margin-bottom:18px;min-height:1.4em}
+#flower{position:fixed;inset:0;display:block;cursor:pointer}
+.final{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,240,247,.9);opacity:0;pointer-events:none;transition:opacity 1s;flex-direction:column;gap:10px;text-align:center;padding:20px}
+.final.show{opacity:1;pointer-events:auto}
+.final h2{font-size:clamp(1.6rem,6vw,3rem);color:var(--pink);font-weight:normal;animation:beat 1.2s ease-in-out infinite}
+.final p{font-style:italic;opacity:.8}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.08)}45%{transform:scale(.98)}}

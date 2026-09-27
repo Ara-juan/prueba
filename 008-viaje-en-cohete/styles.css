@@ -1,0 +1,25 @@
+/* Viaje en Cohete · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#eef4ff}
+html,body{height:100%}
+body{margin:0;background:#04060f;color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden}
+#game{position:fixed;inset:0;display:block;touch-action:none}
+.hud{position:fixed;top:14px;left:16px;font-size:.9rem;letter-spacing:.12em;z-index:2;pointer-events:none}
+.overlay{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(3,5,12,.72);z-index:3;text-align:center;padding:24px}
+.overlay h1{font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin:0;font-size:clamp(1.2rem,4vw,2rem)}
+.overlay p{max-width:520px;line-height:1.7;margin:0;opacity:.85}
+.overlay button{margin-top:8px;border:1px solid #7fd8ff;color:#7fd8ff;border-radius:999px;padding:12px 30px;letter-spacing:.15em;text-transform:uppercase;font-size:.9rem;transition:.25s}
+.overlay button:hover{background:#7fd8ff;color:#04101f}
+.overlay.hidden{display:none}

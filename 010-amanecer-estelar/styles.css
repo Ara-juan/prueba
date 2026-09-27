@@ -1,0 +1,26 @@
+/* Amanecer Estelar · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#fff}
+html,body{height:100%}
+body{margin:0;font-family:Georgia,serif;color:var(--ink);overflow:hidden;user-select:none}
+#scene{position:fixed;inset:0;display:block}
+.title{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;width:92vw}
+.title h1{font-weight:normal;font-size:clamp(1.6rem,6vw,3.4rem);letter-spacing:.12em;opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease,color 1s ease}
+.title p{font-style:italic;opacity:0;transition:opacity 1.4s ease .3s;font-size:clamp(.95rem,2.5vw,1.2rem)}
+.spun .title h1{opacity:1;transform:translateY(0);color:#7a2f00;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+.spun .title p{opacity:.85;color:#5b2a08}
+.controls{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);width:min(420px,86vw);text-align:center}
+.controls label{display:block;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+input[type=range]{width:100%;accent-color:#ffd98a;cursor:pointer}

@@ -1,0 +1,37 @@
+/* Rompecabezas de Foto · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#efe8dc;--ink:#4a4038}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(180deg,#f2ece0,#e4dac8);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;padding:26px 14px;gap:16px}
+header{text-align:center}
+header h1{margin:0 0 4px;font-size:1.25rem;font-weight:600}
+header p{margin:0;font-size:.85rem;opacity:.65}
+.board-wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+.board{display:grid;grid-template-columns:repeat(3,108px);grid-template-rows:repeat(3,108px);gap:5px;background:#fff;padding:9px;border-radius:12px;box-shadow:0 16px 40px rgba(90,70,50,.22)}
+.slot{background:repeating-linear-gradient(45deg,#f2ede2 0 8px,#eae2d2 8px 16px);border-radius:6px;position:relative}
+.slot.over{outline:3px dashed #8ab8d8;outline-offset:-3px;background:#e8f0f8}
+.piece{width:108px;height:108px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;cursor:grab;touch-action:none;user-select:none;box-shadow:0 6px 16px rgba(90,70,50,.28);transition:box-shadow .2s}
+.piece:active{cursor:grabbing;box-shadow:0 12px 26px rgba(90,70,50,.4)}
+.piece.placed{cursor:default;box-shadow:none;animation:settle .35s cubic-bezier(.2,1.4,.3,1)}
+@keyframes settle{from{transform:scale(1.12)}}
+.tray{display:flex;flex-wrap:wrap;gap:9px;max-width:240px;justify-content:center;padding:14px;background:rgba(255,255,255,.6);border-radius:12px;min-height:120px;align-content:flex-start}
+.tray-label{width:100%;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.55}
+.win{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(60,50,35,.6);backdrop-filter:blur(4px);z-index:40;padding:20px}
+.win.show{display:flex}
+.win .card{max-width:400px;background:#fff;border-radius:18px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.4);animation:pop .5s cubic-bezier(.2,1.4,.3,1)}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.win .big{font-size:3rem}
+.win h2{margin:10px 0 8px;font-weight:600}
+.win p{line-height:1.8;margin:0;opacity:.85}

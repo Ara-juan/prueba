@@ -1,0 +1,21 @@
+/* Mapa Estelar Interactivo · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#dfe8ff;--accent:#9fd8ff}
+html,body{height:100%}
+body{margin:0;background:#03040c;color:var(--ink);font-family:'Courier New',monospace;overflow:hidden}
+#map{position:fixed;inset:0;display:block;cursor:crosshair}
+.panel{position:fixed;top:16px;left:16px;background:rgba(8,12,28,.8);border:1px solid rgba(159,216,255,.25);border-radius:10px;padding:12px 16px;font-size:.85rem;line-height:1.7;z-index:2}
+.panel b{color:var(--accent)}
+.coords{position:fixed;right:18px;bottom:16px;font-size:.8rem;opacity:.75;background:rgba(8,12,28,.7);padding:8px 12px;border-radius:8px;border:1px solid rgba(159,216,255,.2);pointer-events:none}

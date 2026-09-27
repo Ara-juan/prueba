@@ -1,0 +1,21 @@
+/* Pétalos al Viento (Sakura) · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#fff1f4;--ink:#5a3d46}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#ffeef2,#fde3ea);color:var(--ink);font-family:Georgia,serif;overflow:hidden}
+#scene{position:fixed;inset:0;display:block}
+.haiku{position:fixed;left:50%;top:14%;transform:translateX(-50%);text-align:center;pointer-events:none}
+.haiku h1{font-weight:normal;font-size:clamp(1.3rem,4vw,2.2rem);letter-spacing:.14em;margin:0}
+.haiku p{font-style:italic;opacity:.7;margin:6px 0 0;font-size:.95rem}

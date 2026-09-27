@@ -1,0 +1,29 @@
+/* Carta Envuelta en Enredaderas · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#f5f1e6;--ink:#4a3b2a;--vine:#4e7a3f}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#faf7ee,#e9e2cf);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.paper{position:relative;width:min(620px,92vw);background:linear-gradient(175deg,#fdfaf0,#f3ecd8);border:1px solid #d9cfb2;box-shadow:0 30px 80px rgba(70,55,25,.25),inset 0 0 60px rgba(200,180,120,.15);padding:clamp(24px,6vw,56px);border-radius:4px;transform:rotate(-.6deg)}
+.paper::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 26px,rgba(150,130,90,.08) 26px 27px);pointer-events:none}
+h1{font-family:'Brush Script MT','Segoe Script',cursive;font-weight:normal;font-size:clamp(1.7rem,5vw,2.7rem);margin:0 0 14px;color:#6b5230}
+p{line-height:1.9;font-style:italic;margin:0 0 12px;font-size:clamp(.95rem,2.4vw,1.08rem)}
+.sig{text-align:right;font-family:'Brush Script MT','Segoe Script',cursive;font-size:1.5rem;color:#7a5a35}
+svg.vines{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);pointer-events:none;overflow:visible}
+.vine-path{fill:none;stroke:var(--vine);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 7s ease forwards}
+.vine-path.v2{animation-delay:.8s;stroke:#5d8a4a}
+.vine-path.v3{animation-delay:1.6s;stroke:#3e6b32}
+@keyframes draw{to{stroke-dashoffset:0}}
+.leaf{fill:var(--vine);opacity:0;animation:pop .8s ease forwards}
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:.9;transform:scale(1)}}

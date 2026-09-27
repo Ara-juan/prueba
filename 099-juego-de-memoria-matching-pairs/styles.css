@@ -1,0 +1,39 @@
+/* Juego de Memoria · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#f0ead8;--ink:#4a4030;--card-back:#8a6a9a}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(180deg,#f4efe0,#e8e0cc);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;padding:24px 14px;gap:14px;user-select:none}
+header{text-align:center}
+header h1{margin:0 0 4px;font-size:1.25rem;font-weight:600}
+header p{margin:0;font-size:.85rem;opacity:.65}
+.stats{display:flex;gap:16px;font-size:.9rem;background:#fff;border-radius:999px;padding:8px 22px;box-shadow:0 8px 20px rgba(90,70,40,.15)}
+.stats b{color:#a86a9a}
+.grid{display:grid;grid-template-columns:repeat(4,86px);gap:10px;perspective:1000px}
+@media (max-width:440px){.grid{grid-template-columns:repeat(4,minmax(64px,1fr))}}
+.cardm{aspect-ratio:3/4;position:relative;cursor:pointer;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.cardm.flipped{transform:rotateY(180deg)}
+.cardm.matched{cursor:default}
+.cardm.matched .face.front{box-shadow:0 0 0 3px #7ac89a}
+.face{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center}
+.face.back{background:linear-gradient(160deg,#9a7aaa,#6a4a7a);color:#fff;font-size:1.6rem;box-shadow:0 8px 20px rgba(90,60,110,.3)}
+.face.front{background:#fff;transform:rotateY(180deg);font-size:2.2rem;box-shadow:0 8px 20px rgba(90,70,40,.22)}
+/* Victoria */
+.win{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(60,40,60,.55);backdrop-filter:blur(4px);z-index:30;padding:20px}
+.win.show{display:flex}
+.win .card{max-width:400px;background:#fff;border-radius:18px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.4);animation:pop .5s cubic-bezier(.2,1.4,.3,1)}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.win .big{font-size:3rem}
+.win h2{margin:10px 0 8px;font-weight:600}
+.win p{line-height:1.8;margin:0;opacity:.85}

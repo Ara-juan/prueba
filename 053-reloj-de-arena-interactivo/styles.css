@@ -1,0 +1,25 @@
+/* Reloj de Arena Interactivo · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#120a0e;--sand:#c23c4e;--ink:#e0d0d8}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#221219,var(--bg) 70%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;user-select:none}
+#hourglass{display:block;filter:drop-shadow(0 24px 50px rgba(0,0,0,.6))}
+.hint{font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;opacity:.55}
+.msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:rgba(10,5,8,.9);opacity:0;pointer-events:none;transition:opacity 1.2s;text-align:center;padding:24px;z-index:5}
+.msg.show{opacity:1;pointer-events:auto}
+.msg h2{font-weight:normal;font-size:clamp(1.4rem,5vw,2.4rem);color:#e8a8b8;text-shadow:0 0 24px rgba(232,168,184,.5)}
+.msg p{font-style:italic;line-height:1.9;max-width:520px;opacity:.85;margin:0}
+.msg button{margin-top:10px;border:1px solid #c23c4e;color:#c23c4e;background:transparent;border-radius:999px;padding:11px 28px;font-family:inherit;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;cursor:pointer;transition:.2s}
+.msg button:hover{background:#c23c4e;color:#120a0e}

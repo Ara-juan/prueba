@@ -1,0 +1,52 @@
+/* Camcorder 8mm · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--green:#6aff8a;--red:#ff4a4a}
+html,body{height:100%}
+body{margin:0;background:#000;font-family:'Courier New',monospace;overflow:hidden;user-select:none;cursor:crosshair}
+.viewfinder{position:fixed;inset:0;overflow:hidden}
+/* Escena "grabada": un recuerdo animado simple */
+.scene-vhs{position:absolute;inset:0;background:linear-gradient(180deg,#f4d78a,#e88a5a 55%,#b85a3a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;filter:saturate(1.15) contrast(1.05)}
+.scene-vhs .sun{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#fff4c8,#ffd66b);box-shadow:0 0 60px rgba(255,220,120,.9);animation:sunset 16s ease-in-out infinite alternate}
+@keyframes sunset{from{transform:translateY(-16px)}to{transform:translateY(26px) scale(.92)}}
+.scene-vhs .sea{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,#8a5a7a,#5a3a6a);box-shadow:0 -6px 20px rgba(0,0,0,.2)}
+.scene-vhs .quote{position:relative;z-index:2;font-family:Georgia,serif;color:#fff;text-shadow:0 2px 12px rgba(90,40,20,.6);font-style:italic;font-size:clamp(.95rem,3vw,1.3rem);text-align:center;padding:0 20px;margin-top:26vh}
+/* HUD de la videocámara */
+.hud{position:absolute;inset:0;pointer-events:none;z-index:5;color:var(--green);text-shadow:0 0 6px rgba(100,255,140,.7);font-size:.85rem}
+.rec{position:absolute;top:18px;left:22px;display:flex;align-items:center;gap:8px;letter-spacing:.24em}
+.rec i{width:13px;height:13px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.rec.paused i{animation:none;background:#888;box-shadow:none}
+.corner{position:absolute;width:34px;height:34px;border:3px solid rgba(255,255,255,.5)}
+.corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
+.corner.tr{top:14px;right:14px;border-left:none;border-bottom:none}
+.corner.bl{bottom:14px;left:14px;border-right:none;border-top:none}
+.corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
+.date-stamp{position:absolute;bottom:20px;right:26px;font-size:.95rem;letter-spacing:.14em}
+.battery{position:absolute;top:18px;right:22px;display:flex;align-items:center;gap:6px}
+.battery .case{width:44px;height:16px;border:2px solid var(--green);border-radius:3px;position:relative}
+.battery .case::after{content:"";position:absolute;right:-6px;top:4px;width:4px;height:6px;background:var(--green)}
+.battery .level{position:absolute;inset:2px;background:var(--green);transform-origin:left;box-shadow:0 0 8px rgba(100,255,140,.6)}
+.battery.low .level{background:var(--red);box-shadow:0 0 8px rgba(255,80,80,.6)}
+.battery.low{animation:blink 1s steps(2) infinite;color:var(--red);text-shadow:0 0 6px rgba(255,80,80,.7)}
+.timecode{position:absolute;bottom:20px;left:26px;font-size:.95rem;letter-spacing:.1em}
+/* Overlay VHS */
+.vhs-lines{position:absolute;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.vhs-head{position:absolute;left:0;right:0;height:14px;z-index:4;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(255,255,255,.14),transparent);animation:headRoll 7s linear infinite}
+@keyframes headRoll{0%{top:-14px}100%{top:100%}}
+.vhs-noise{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.10;background-image:url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E)}
+.controls{position:fixed;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:14px;z-index:8}
+.controls button{font-family:inherit;background:rgba(0,0,0,.55);color:var(--green);border:1px solid rgba(100,255,140,.4);padding:9px 20px;letter-spacing:.18em;font-size:.75rem;cursor:pointer}
+.controls button:hover{background:rgba(100,255,140,.15)}
+.controls button.danger{color:var(--red);border-color:rgba(255,80,80,.5)}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz Streaming "Loveflix"</title>
+  <meta name="description" content="Réplica de plataforma de streaming con "Tus momentos favoritos" y auto-reproducción del tráiler. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Interfaz Streaming "Loveflix" · Una dedicatoria para ti">
+  <meta property="og:description" content="Réplica de plataforma de streaming con "Tus momentos favoritos" y auto-reproducción del tráiler.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+  <span class="logo">LOVEFLIX</span>
+  <nav><a href="#">Inicio</a><a href="#">Momentos</a><a href="#">Mi lista</a></nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <span class="tag">Estreno permanente</span>
+    <h1>Nosotros: La Serie</h1>
+    <p>Una historia real sobre dos personas, mil risas y un futuro por escribir. Temporadas: todas las que vivamos.</p>
+    <div class="actions">
+      <button class="btn" id="playBtn">▶ Reproducir</button>
+      <button class="btn ghost" id="infoBtn">ⓘ Más información</button>
+    </div>
+  </div>
+</section>
+<h2 class="row-title">Tus momentos favoritos</h2>
+<div class="row" id="row"></div>
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <button class="close" id="closeModal">✕</button>
+      <h2 id="modalTitle"></h2>
+    </div>
+    <div class="modal-body">
+      <div class="meta"><span class="match" id="modalMatch"></span><span id="modalYear"></span></div>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

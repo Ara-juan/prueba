@@ -1,0 +1,59 @@
+/* Interfaz Streaming "Loveflix" · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#141414;--red:#e50914;--ink:#fff}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;padding-bottom:60px}
+.navbar{display:flex;align-items:center;gap:22px;padding:14px 4%;background:linear-gradient(180deg,rgba(0,0,0,.85),transparent);position:sticky;top:0;z-index:10}
+.logo{color:var(--red);font-weight:900;font-size:1.5rem;letter-spacing:-.04em}
+.navbar nav{display:flex;gap:16px;font-size:.85rem;opacity:.85}
+.navbar nav a{text-decoration:none;color:inherit}
+.navbar nav a:hover{color:#fff;opacity:1}
+/* Hero con "tráiler" autoejecutable (animación CSS) */
+.hero{position:relative;height:min(62vh,480px);display:flex;align-items:flex-end;padding:0 4% 46px;overflow:hidden;background:linear-gradient(120deg,#2a0a0f,#4a1018 55%,#141414)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 30%,rgba(229,9,20,.25),transparent 55%);animation:heroGlow 6s ease-in-out infinite alternate}
+@keyframes heroGlow{from{transform:scale(1)}to{transform:scale(1.15)}}
+.hero-content{position:relative;max-width:560px}
+.hero .tag{display:inline-block;background:var(--red);padding:3px 10px;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700}
+.hero h1{margin:12px 0 8px;font-size:clamp(1.8rem,5.5vw,3.2rem);letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.7)}
+.hero p{opacity:.85;line-height:1.6;margin:0 0 18px}
+.hero .actions{display:flex;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#000;border:none;padding:11px 26px;font-weight:700;font-size:.95rem;border-radius:4px;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:scale(1.04)}
+.btn.ghost{background:rgba(109,109,110,.65);color:#fff}
+.row-title{padding:26px 4% 12px;font-size:1.15rem;font-weight:700}
+.row{display:flex;gap:12px;overflow-x:auto;padding:4px 4% 18px;scroll-snap-type:x mandatory}
+.row::-webkit-scrollbar{height:8px}
+.row::-webkit-scrollbar-thumb{background:#333;border-radius:4px}
+.card{flex:0 0 190px;aspect-ratio:2/3;border-radius:6px;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;font-size:.8rem;transition:transform .25s;cursor:pointer;overflow:hidden}
+.card:hover{transform:scale(1.07) translateY(-4px);z-index:2;box-shadow:0 16px 40px rgba(0,0,0,.7)}
+.card b{font-size:.92rem;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+.card span{opacity:.75}
+.card .emoji{position:absolute;top:14px;left:12px;font-size:2rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.6))}
+.card .match{color:#46d369;font-weight:700;font-size:.72rem;margin-top:4px}
+/* Colores de fondo por tarjeta */
+.c1{background:linear-gradient(160deg,#3a2a5e,#1a1230)}.c2{background:linear-gradient(160deg,#5e2a3a,#301218)}
+.c3{background:linear-gradient(160deg,#2a5e46,#123024)}.c4{background:linear-gradient(160deg,#5e562a,#302c12)}
+.c5{background:linear-gradient(160deg,#2a3e5e,#121c30)}.c6{background:linear-gradient(160deg,#5e2a2a,#301212)}
+/* Modal estilo Netflix */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
+.modal.show{display:flex}
+.modal-box{width:min(560px,94vw);background:#181818;border-radius:8px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.9);animation:zoom .35s cubic-bezier(.2,1.2,.3,1)}
+@keyframes zoom{from{transform:scale(.85);opacity:0}}
+.modal-head{height:200px;background:linear-gradient(120deg,var(--red),#5a0a10);display:flex;align-items:flex-end;padding:20px;position:relative}
+.modal-head h2{margin:0;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.modal-head .close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:1.1rem;cursor:pointer}
+.modal-body{padding:20px;line-height:1.7;font-size:.92rem}
+.modal-body .meta{display:flex;gap:14px;margin-bottom:12px;font-size:.78rem}
+.modal-body .match{color:#46d369;font-weight:700}

@@ -1,0 +1,21 @@
+/* Escritorio Cozy · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--warm:#3a2c20;--ink:#e8d8c0}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 30% 20%,#4a3826,#241a10 70%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;user-select:none}
+#scene{position:fixed;inset:0;display:block}
+.toggle{position:fixed;top:16px;right:16px;background:rgba(232,216,192,.1);border:1px solid rgba(232,216,192,.35);color:var(--ink);border-radius:999px;padding:9px 20px;font-family:Georgia,serif;font-size:.8rem;cursor:pointer;letter-spacing:.14em;z-index:5}
+.toggle:hover{background:rgba(232,216,192,.22)}
+.hint{position:fixed;bottom:16px;left:0;right:0;text-align:center;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;opacity:.4;pointer-events:none}

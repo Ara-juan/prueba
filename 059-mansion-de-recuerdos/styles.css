@@ -1,0 +1,22 @@
+/* Mansión de Recuerdos · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#cfc8b8}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(#0c0a14,#141020);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;user-select:none}
+#scene{display:block;filter:drop-shadow(0 24px 60px rgba(0,0,0,.7))}
+.hint{padding:10px;text-align:center;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;opacity:.55}
+.info{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(480px,90vw);background:rgba(18,14,30,.94);border:1px solid rgba(200,180,130,.3);border-radius:12px;padding:16px 20px;text-align:center;font-style:italic;line-height:1.7;opacity:0;transition:opacity .5s;pointer-events:none;z-index:5}
+.info.show{opacity:1}
+.info b{display:block;font-style:normal;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:#d8b86a;margin-bottom:6px}

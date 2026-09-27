@@ -1,0 +1,40 @@
+/* Trivia de Nuestra Película · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#131622;--card:#1c2135;--accent:#ffb64f;--ok:#4fd68a;--bad:#ff5a7a;--ink:#eef0fa}
+html,body{min-height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 0,#1d2340,var(--bg) 70%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:24px}
+.quiz{width:min(620px,94vw)}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.head h1{font-size:1.05rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:0}
+.score{background:rgba(255,182,79,.12);border:1px solid rgba(255,182,79,.4);color:var(--accent);border-radius:999px;padding:6px 16px;font-size:.85rem}
+.progress{height:6px;background:rgba(255,255,255,.08);border-radius:999px;margin-bottom:22px;overflow:hidden}
+.progress i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#ff7ab0);border-radius:999px;transition:width .4s}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.q-num{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.question{font-size:clamp(1.05rem,3vw,1.3rem);line-height:1.5;margin:0 0 18px;font-weight:600}
+.options{display:flex;flex-direction:column;gap:10px}
+.option{text-align:left;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:13px 18px;font-size:.95rem;transition:.2s;cursor:pointer;color:inherit}
+.option:hover{border-color:var(--accent);transform:translateX(5px)}
+.option.correct{border-color:var(--ok);background:rgba(79,214,138,.12)}
+.option.correct::after{content:" ✔ ¡Correcto!";color:var(--ok);font-weight:700}
+.option.wrong{border-color:var(--bad);background:rgba(255,90,122,.1)}
+.option.wrong::after{content:" ✕";color:var(--bad);font-weight:700}
+.note{margin-top:14px;font-style:italic;font-size:.88rem;opacity:.8;min-height:1.4em}
+.next{margin-top:16px;background:linear-gradient(120deg,var(--accent),#ff7ab0);border:none;color:#241a08;font-weight:700;border-radius:999px;padding:12px 30px;letter-spacing:.1em;cursor:pointer;display:none}
+.next.show{display:inline-block}
+.final{text-align:center;padding:16px 8px}
+.final .big{font-size:clamp(2.2rem,8vw,3.4rem);font-weight:800;background:linear-gradient(120deg,var(--accent),#ff7ab0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final p{line-height:1.8;opacity:.9}
+.again{margin-top:18px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);border-radius:999px;padding:11px 28px;letter-spacing:.14em;cursor:pointer}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máquina Gashapon</title>
+  <meta name="description" content="Gira la perilla: una cápsula al azar cae con un premio dedicado dentro. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Máquina Gashapon · Una dedicatoria para ti">
+  <meta property="og:description" content="Gira la perilla: una cápsula al azar cae con un premio dedicado dentro.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="machine">
+  <div class="dome" id="dome"></div>
+  <div class="body-m">
+    <div class="knob" id="knob" role="button" aria-label="Girar la perilla"></div>
+    <div class="tray"></div>
+  </div>
+</div>
+<p class="hint">Gira la perilla para recibir tu cápsula 🎰</p>
+<div class="prize" id="prize">
+  <div class="emoji" id="pEmoji">🎁</div>
+  <h2 id="pTitle"></h2>
+  <p id="pText"></p>
+  <button id="pClose">¡Lo quiero! ♥</button>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

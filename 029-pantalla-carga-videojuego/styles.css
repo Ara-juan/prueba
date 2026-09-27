@@ -1,0 +1,34 @@
+/* Pantalla de Carga de Videojuego · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#0d0d17;--accent:#4fd6a0;--ink:#e8f5f0}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 100%,#16203a,var(--bg) 70%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden}
+.loader{width:min(520px,92vw);text-align:center}
+.loader h1{font-weight:300;letter-spacing:.4em;text-transform:uppercase;font-size:1rem;opacity:.85;margin-bottom:26px}
+.pct{font-size:3.2rem;font-weight:200;letter-spacing:.04em;margin-bottom:14px;font-variant-numeric:tabular-nums}
+.bar{height:12px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;position:relative}
+.bar .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#7fe0ff);border-radius:999px;box-shadow:0 0 18px rgba(79,214,160,.7);transition:width .25s ease}
+.bar .shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);animation:sweep 1.6s linear infinite}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.tip{margin-top:22px;font-size:.92rem;min-height:3.2em;opacity:.85;font-style:italic;transition:opacity .3s}
+.tip b{color:var(--accent);font-style:normal}
+/* La carta final */
+.letter{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,8,15,.85);opacity:0;pointer-events:none;transition:opacity .8s;backdrop-filter:blur(6px);z-index:5;padding:20px}
+.letter.show{opacity:1;pointer-events:auto}
+.letter .paper{width:min(520px,92vw);background:linear-gradient(175deg,#fdfaf0,#f1e9d2);color:#4a3b28;padding:34px 30px;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);transform:translateY(30px) rotate(-1deg);transition:transform .8s cubic-bezier(.2,1.2,.3,1);font-family:Georgia,serif;line-height:1.8}
+.letter.show .paper{transform:none}
+.letter h2{margin:0 0 12px;font-weight:normal;font-size:1.4rem}
+.letter button{margin-top:18px;border:1.5px solid #8a6d3b;color:#8a6d3b;border-radius:999px;padding:10px 24px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;transition:.2s}
+.letter button:hover{background:#8a6d3b;color:#fdfaf0}

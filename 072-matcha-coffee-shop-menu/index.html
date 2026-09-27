@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Matcha Coffee Shop</title>
+  <meta name="description" content="Cafetería estética: las bebidas son momentos compartidos y el recibo impreso es la dedicatoria. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Menú Matcha Coffee Shop · Una dedicatoria para ti">
+  <meta property="og:description" content="Cafetería estética: las bebidas son momentos compartidos y el recibo impreso es la dedicatoria.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="menu-card">
+  <h1>🍃 Café Matcha & Recuerdos</h1>
+  <div class="sub">Bebidas de temporada: ediciones limitadas contigo</div>
+  <div id="items"></div>
+  <div class="total-line"><span>Total de momentos</span><span id="total">0</span></div>
+  <p class="add-note">Toca una bebida para agregarla a tu pedido</p>
+</div>
+<div class="receipt-wrap">
+  <div class="receipt" id="receipt">
+    <h2>CAFÉ MATCHA & RECUERDOS</h2>
+    <div class="cent">Mesa favorita · Atendido por: el destino</div>
+    <div class="dashed"></div>
+    <div id="rItems"><div class="row"><span>— pedido vacío —</span></div></div>
+    <div class="dashed"></div>
+    <div class="row total"><span>AMOR ACUMULADO</span><span id="rTotal">0%</span></div>
+    <div class="dashed"></div>
+    <div class="thanks">Gracias por tu visita.<br>Vuelve pronto: tu mesa<br>siempre estará reservada. ♥</div>
+  </div>
+  <button class="button-print" id="printBtn">🧾 Imprimir recibo</button>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

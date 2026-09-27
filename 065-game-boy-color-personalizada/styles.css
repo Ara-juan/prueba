@@ -1,0 +1,39 @@
+/* Game Boy Color de Mensajes · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--gb:#c4baca;--gb-dark:#9a8aa2;--screen:#8a9a4a;--screen-dk:#4a5a2a;--btn:#c94a5a}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#3a3440,#1a1620 75%);font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;padding:16px;user-select:none}
+.gbc{width:min(340px,94vw);background:linear-gradient(160deg,var(--gb),var(--gb-dark));border-radius:14px 14px 54px 14px;padding:18px 18px 30px;box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 3px 0 rgba(255,255,255,.35);border-bottom:8px solid #6a5a72}
+.bezel{background:#4a4452;border-radius:10px 10px 36px 10px;padding:16px 26px 22px;box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
+.screen{background:var(--screen);aspect-ratio:10/9;border-radius:4px;box-shadow:inset 0 0 0 4px var(--screen-dk),inset 0 6px 20px rgba(0,40,0,.4);padding:12px;color:#2a3a12;font-family:'Courier New',monospace;display:flex;flex-direction:column;font-size:.78rem;line-height:1.5;overflow:hidden;position:relative}
+.screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 2px,transparent 2px 4px);pointer-events:none}
+.screen .top{display:flex;justify-content:space-between;opacity:.7;font-size:.62rem;margin-bottom:8px}
+.screen .art{font-size:2.2rem;text-align:center;margin:4px 0}
+.screen .body{white-space:pre-wrap}
+.brand{display:flex;align-items:center;gap:8px;margin:10px 0 14px;justify-content:center;color:#3a3040;font-weight:700;font-size:.72rem;letter-spacing:.14em}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--btn)}
+.controls{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.dpad{position:relative;width:84px;height:84px}
+.dpad button{position:absolute;width:28px;height:28px;background:#3a3040;border:none;box-shadow:0 3px 0 #1e1826;cursor:pointer;color:#c4baca;font-size:.7rem}
+.dpad button:active{transform:translateY(2px);box-shadow:0 1px 0 #1e1826}
+.dpad .up{left:28px;top:0;border-radius:6px 6px 0 0}.dpad .down{left:28px;bottom:0;border-radius:0 0 6px 6px}
+.dpad .left{left:0;top:28px;border-radius:6px 0 0 6px}.dpad .right{right:0;top:28px;border-radius:0 0 6px 0}
+.dpad .mid{left:28px;top:28px;background:#3a3040;pointer-events:none}
+.ab{display:flex;gap:12px;transform:rotate(-18deg)}
+.ab button{width:44px;height:44px;border-radius:50%;background:var(--btn);color:#fff;font-weight:700;font-size:.8rem;border:none;box-shadow:0 4px 0 #7a2a3a;cursor:pointer}
+.ab button:active{transform:translateY(3px);box-shadow:0 1px 0 #7a2a3a}
+.startsel{display:flex;gap:16px;justify-content:center;margin-top:16px}
+.startsel button{width:56px;height:12px;border-radius:8px;background:#6a5a72;border:none;box-shadow:0 3px 0 #3a3040;cursor:pointer;transform:rotate(-18deg)}
+.hint{text-align:center;color:#4a4050;font-size:.72rem;margin-top:10px;letter-spacing:.06em}

@@ -1,0 +1,29 @@
+/* Créditos Finales de Cine · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#d8d2c4}
+html,body{height:100%}
+body{margin:0;background:#000;color:var(--ink);font-family:Georgia,serif;overflow:hidden;cursor:pointer}
+.stage{position:relative;height:100%}
+.credits{position:absolute;left:0;right:0;top:100%;text-align:center;animation:roll 38s linear forwards;padding-bottom:60vh}
+@keyframes roll{to{transform:translateY(calc(-100% - 100vh))}}
+.credits .lead{font-size:.8rem;letter-spacing:.5em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.credits h1{font-weight:normal;font-size:clamp(1.8rem,6vw,3rem);letter-spacing:.06em;margin:0 0 40px;color:#f5efdd}
+.credits h2{font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;opacity:.55;margin:44px 0 10px;font-weight:normal}
+.credits .name{font-size:1.25rem;font-style:italic;margin:6px 0;color:#efe8d5}
+.credits .role{font-size:.85rem;opacity:.65;margin:0 0 4px}
+.credits .quote{font-style:italic;opacity:.8;margin:50px auto 0;max-width:70%;line-height:1.9;font-size:1.05rem}
+.credits .fin{margin-top:60px;font-size:2rem;letter-spacing:.6em;color:#f5efdd}
+.vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.75) 100%)}
+.controls{position:fixed;bottom:18px;right:20px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;opacity:.5;z-index:3}

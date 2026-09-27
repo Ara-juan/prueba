@@ -1,0 +1,21 @@
+/* Invernadero de Recuerdos · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#f2efe9;--ink:#3e4a3a;--terra:#c96f4a}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#fbf7ee,#eee6d6);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;user-select:none}
+#scene{position:fixed;inset:0;display:block;touch-action:none}
+.hint{position:fixed;top:16px;left:0;right:0;text-align:center;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;pointer-events:none}
+.leaf-note{position:absolute;background:#fffdf4;border:1px solid #d8cba8;color:#5b4a22;padding:8px 13px;border-radius:10px;font-size:.82rem;font-style:italic;box-shadow:0 8px 20px rgba(90,70,30,.18);transform:translate(-50%,-140%);opacity:0;transition:opacity .5s;pointer-events:none;max-width:210px;text-align:center;z-index:4}
+.leaf-note.show{opacity:1}

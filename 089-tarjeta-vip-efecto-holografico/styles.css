@@ -1,0 +1,33 @@
+/* Tarjeta VIP Holográfica · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#e8e8f0}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 40%,#1a1a24,#0a0a12 75%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;user-select:none}
+.scene{perspective:1200px}
+.card3d{position:relative;width:min(400px,88vw);aspect-ratio:16/10;border-radius:18px;transform-style:preserve-3d;transition:transform .12s ease-out;cursor:crosshair;background:linear-gradient(135deg,#c8c8d8,#8a8aa0)}
+/* Capa holográfica que responde al ángulo */
+.holo{position:absolute;inset:0;border-radius:18px;opacity:.85;mix-blend-mode:color-dodge;transition:background .1s;background:linear-gradient(115deg,#ff5a8a,#ffd23c,#5aff8a,#5ab0ff,#c05aff);background-size:300% 300%;background-position:var(--hx,50%) var(--hy,50%);filter:saturate(1.4)}
+.glare{position:absolute;inset:0;border-radius:18px;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),transparent 45%);mix-blend-mode:screen}
+.card-content{position:absolute;inset:0;padding:22px 26px;display:flex;flex-direction:column;justify-content:space-between;color:#16161e;transform:translateZ(40px);text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.cc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.cc-top .brand{font-weight:900;letter-spacing:.2em;font-size:.8rem}
+.cc-top .chip{width:44px;height:32px;border-radius:6px;background:linear-gradient(135deg,#f0d98a,#b8952f);box-shadow:inset 0 0 0 2px rgba(0,0,0,.2);position:relative}
+.cc-top .chip::after{content:"";position:absolute;inset:6px 8px;border:1.5px solid rgba(0,0,0,.3);border-radius:3px}
+.cc-num{font-size:clamp(1.1rem,4.5vw,1.5rem);letter-spacing:.14em;font-variant-numeric:tabular-nums;font-weight:700}
+.cc-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.cc-bottom div b{display:block;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+.cc-bottom div span{font-weight:700;font-size:.9rem}
+.cc-vip{font-size:.62rem;letter-spacing:.4em;background:#16161e;color:#fff;border-radius:4px;padding:4px 10px;font-weight:800}
+.hint{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.5;text-align:center}

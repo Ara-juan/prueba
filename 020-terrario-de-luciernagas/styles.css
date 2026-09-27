@@ -1,0 +1,21 @@
+/* Terrario de Luciérnagas · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#0b1220;--ink:#dce8ff}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 100%,#16233d,var(--bg) 70%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden}
+#scene{position:fixed;inset:0;display:block;cursor:pointer}
+.hint{position:fixed;bottom:22px;width:100%;text-align:center;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55;pointer-events:none}
+.quote{position:fixed;left:50%;top:8%;transform:translateX(-50%);font-style:italic;font-size:clamp(.95rem,2.6vw,1.25rem);opacity:0;transition:opacity 1.2s;pointer-events:none;text-align:center;width:90vw;color:#ffe9a8}
+.quote.show{opacity:1}

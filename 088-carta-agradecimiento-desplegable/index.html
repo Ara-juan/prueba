@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Agradecimiento Tríptico</title>
+  <meta name="description" content="Estructura tipo tríptico que se abre en 3 partes con animaciones horizontales escalonadas. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Carta Agradecimiento Tríptico · Una dedicatoria para ti">
+  <meta property="og:description" content="Estructura tipo tríptico que se abre en 3 partes con animaciones horizontales escalonadas.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="triptych" id="triptych">
+  <div class="panel left">
+    <div class="cover-label"><span class="orn">🌿</span><span>Con</span></div>
+    <div class="inner"><div class="big">🙏</div><h2>Gracias por tu tiempo</h2><p>Por cada momento que regalaste sin que lo pidiera. El tiempo es lo más caro que tenemos, y tú lo gastaste en mí.</p></div>
+  </div>
+  <div class="panel center">
+    <div class="inner">
+      <h1>Carta de agradecimiento</h1>
+      <p>Querida persona extraordinaria: hay agradecimientos que no caben en un mensaje, y por eso ocupan una carta entera como esta.</p>
+      <p>Gracias por escucharme sin reloj, por celebrar mis cosas pequeñas como si fueran titulares, y por estar incluso cuando el silencio era la mejor compañía.</p>
+      <p>Que la vida te devuelva multiplicado todo lo que das. Y si depende de mí, ya empezó.</p>
+      <div class="sig">— Con el corazón, siempre</div>
+    </div>
+  </div>
+  <div class="panel right">
+    <div class="cover-label"><span class="orn">✉️</span><span>Cariño</span></div>
+    <div class="inner"><div class="big">💛</div><h2>Gracias por ser tú</h2><p>Por tu manera única de estar en el mundo. Este agradecimiento no caduca: se renueva cada día que coincidimos.</p></div>
+  </div>
+</div>
+<button class="btn-open" id="openBtn">Abrir carta 💌</button>
+<p class="hint">Pulsa de nuevo para cerrar el tríptico</p>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

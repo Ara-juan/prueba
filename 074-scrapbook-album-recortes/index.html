@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrapbook: Álbum de Recortes</title>
+  <meta name="description" content="Cuaderno de espiral con fotos pegadas con washi tape, sellos y notas breves que puedes mover. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scrapbook: Álbum de Recortes · Una dedicatoria para ti">
+  <meta property="og:description" content="Cuaderno de espiral con fotos pegadas con washi tape, sellos y notas breves que puedes mover.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="book" id="book">
+  <div class="spiral"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="washi pink" style="top:6px;left:30px;transform:rotate(-4deg)"></div>
+  <div class="washi mint" style="top:10px;right:40px"></div>
+  <div class="washi pink" style="bottom:24px;right:70px;transform:rotate(7deg);width:80px"></div>
+
+  <figure class="photo" style="left:24px;top:40px;transform:rotate(-4deg)">
+    <div class="img">🌅</div>
+    <figcaption>el amanecer que nos sorprendió</figcaption>
+  </figure>
+  <figure class="photo" style="right:24px;top:80px;transform:rotate(3deg)">
+    <div class="img">🎡</div>
+    <figcaption>la feria y su algodón de azúcar</figcaption>
+  </figure>
+  <figure class="photo" style="left:60px;bottom:60px;transform:rotate(2deg)">
+    <div class="img">☕</div>
+    <figcaption>café y charla infinita</figcaption>
+  </figure>
+
+  <div class="note y" style="right:40px;bottom:50px">Recordatorio importantísimo: eres de las mejores cosas que me pasaron. Sin asteriscos.</div>
+  <div class="note p" style="right:30px;top:200px">Nota: esta página huele a nostalgia buena. No tocar demasiado. ♥</div>
+  <div class="stamp" style="left:230px;top:280px"><b>♥</b>Sellado con cariño</div>
+</div>
+<p class="hint">Arrastra las fotos, notas y sellos para reorganizar tus recuerdos</p>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

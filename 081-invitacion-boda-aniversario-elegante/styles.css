@@ -1,0 +1,48 @@
+/* Invitación de Boda/Aniversario · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ivory:#faf6ee;--gold:#b0955a;--ink:#3a3428;--sage:#7a8a6a}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(180deg,#efe9dc,#e5dcc8);color:var(--ink);font-family:Georgia,serif;padding:40px 16px;display:flex;flex-direction:column;align-items:center;gap:30px}
+.invite{width:min(600px,94vw);background:var(--ivory);box-shadow:0 30px 80px rgba(90,70,40,.25);padding:clamp(30px,6vw,56px);text-align:center;position:relative}
+.invite::before{content:"";position:absolute;inset:12px;border:1.5px solid var(--gold);pointer-events:none}
+.invite .kicker{font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--sage)}
+.invite h1{font-weight:normal;font-size:clamp(1.9rem,7vw,3.2rem);margin:14px 0 4px;letter-spacing:.04em}
+.invite .amp{color:var(--gold);font-style:italic;font-size:1.3em}
+.invite .date-line{letter-spacing:.3em;text-transform:uppercase;font-size:.85rem;margin:16px 0 8px}
+.invite .divider{display:flex;align-items:center;gap:12px;justify-content:center;margin:18px 0;color:var(--gold)}
+.invite .divider::before,.invite .divider::after{content:"";height:1px;width:70px;background:var(--gold)}
+/* Cuenta regresiva */
+.countdown{display:flex;gap:14px;justify-content:center;margin:20px 0;flex-wrap:wrap}
+.cd-unit{min-width:64px;background:#fff;border:1px solid #e0d6c0;border-radius:8px;padding:10px 6px}
+.cd-unit b{display:block;font-size:1.6rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+.cd-unit span{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage)}
+/* Mini mapa interactivo */
+.map{margin:8px auto 22px;width:min(300px,80vw);display:block;border-radius:10px;border:1px solid #ddd2ba;cursor:pointer;transition:box-shadow .3s}
+.map:hover{box-shadow:0 12px 30px rgba(90,70,40,.25)}
+.rsvp-btn{background:var(--gold);color:#fff;border:none;border-radius:999px;padding:13px 38px;font-family:Georgia,serif;font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 24px rgba(176,149,90,.4)}
+.rsvp-btn:hover{transform:translateY(-2px)}
+/* Modal RSVP */
+.modal{position:fixed;inset:0;background:rgba(50,40,25,.5);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+.modal.show{display:flex}
+.modal-card{width:min(400px,94vw);background:var(--ivory);border-radius:12px;padding:30px;box-shadow:0 40px 90px rgba(0,0,0,.4);animation:up .4s cubic-bezier(.2,1.2,.3,1)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.modal-card h2{margin:0 0 16px;font-weight:normal;font-size:1.25rem;text-align:center}
+.field{margin-bottom:14px;text-align:left}
+.field label{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:5px}
+.field input,.field select{width:100%;padding:10px 12px;border:1px solid #d8ccb2;border-radius:6px;background:#fff;font-family:inherit;font-size:.92rem;outline:none}
+.field input:focus{border-color:var(--gold)}
+.field .radios{display:flex;gap:16px;font-size:.9rem}
+.modal-card button[type=submit]{width:100%;margin-top:6px;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:13px;font-family:Georgia,serif;font-size:.95rem;letter-spacing:.14em;cursor:pointer}
+.modal-card .thanks{text-align:center;display:none;font-style:italic;line-height:1.8;padding:10px 0}

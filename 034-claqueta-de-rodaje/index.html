@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claqueta de Rodaje</title>
+  <meta name="description" content="La claqueta baja con un ¡ACCIÓN! que activa la escena con fotos, música y dedicatoria. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Claqueta de Rodaje · Una dedicatoria para ti">
+  <meta property="og:description" content="La claqueta baja con un ¡ACCIÓN! que activa la escena con fotos, música y dedicatoria.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="set">
+  <div class="clapper" id="clapper" role="button" tabindex="0" aria-label="Golpear la claqueta">
+    <div class="stick top" id="topStick"></div>
+    <div class="plate">
+      <div class="field"><span>Producción</span><b>NOSOTROS: LA PELÍCULA</b></div>
+      <div class="field"><span>Director/a</span><b>EL CORAZÓN</b></div>
+      <div class="field"><span>Escena</span><b>LA MEJOR DE TODAS</b></div>
+      <div class="field"><span>Take</span><b id="takeNum">001</b></div>
+    </div>
+  </div>
+  <div class="scene" id="scene">
+    <span class="take-tag">● REC — TAKE 001</span>
+    <div class="film">🎬</div>
+    <h2>Escena: "El día a día contigo"</h2>
+    <p>Guión: improvisado. Localizaciones: cualquiera. Reparto: tú y yo. Crítica: 5 estrellas. Basada en hechos absolutamente reales.</p>
+  </div>
+  <p class="hint">Haz clic en la claqueta · ESPACIO también funciona</p>
+</div>
+<div class="action" id="action">¡ACCIÓN!</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

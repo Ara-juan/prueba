@@ -1,0 +1,26 @@
+/* Galaxia de Recuerdos 3D · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#05060f;--accent:#8ec5ff;--card:rgba(14,20,38,.92);--text:#e8f1ff}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(ellipse at 50% 120%,#101b3f 0%,var(--bg) 60%);color:var(--text);font-family:Georgia,'Times New Roman',serif;overflow:hidden}
+#scene{position:fixed;inset:0;display:block;cursor:crosshair}
+.hint{position:fixed;top:18px;left:50%;transform:translateX(-50%);font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65;pointer-events:none;text-align:center;padding:0 16px}
+.card{position:fixed;left:50%;top:50%;width:min(420px,86vw);background:var(--card);border:1px solid rgba(142,197,255,.35);border-radius:18px;padding:28px 26px;box-shadow:0 24px 70px rgba(0,0,0,.65),0 0 40px rgba(142,197,255,.12);transform:translate(-50%,-46%) scale(.85);opacity:0;pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,1.4,.3,1);backdrop-filter:blur(6px);z-index:5}
+.card.open{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.card h2{margin:0 0 8px;font-size:1.5rem;color:var(--accent);font-weight:normal;letter-spacing:.05em}
+.card p{line-height:1.6;margin:0 0 18px;font-size:1.02rem}
+.card .close{border:1px solid rgba(142,197,255,.5);border-radius:999px;padding:9px 22px;color:var(--accent);letter-spacing:.1em;font-size:.85rem;transition:background .25s,color .25s}
+.card .close:hover{background:var(--accent);color:#0a1024}
+@media (max-width:600px){.hint{font-size:.75rem}}

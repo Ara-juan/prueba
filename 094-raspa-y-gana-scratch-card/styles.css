@@ -1,0 +1,31 @@
+/* Rasca y Gana · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--gold:#d8a832;--ink:#4a3820}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#2c2c34,#141418 75%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;user-select:none}
+.ticket{position:relative;width:min(480px,92vw);background:linear-gradient(160deg,#f5e3b0,#e8cf8a);border-radius:16px;padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.5);text-align:center;border:3px solid var(--gold)}
+.ticket h1{margin:0 0 4px;font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;color:#8a6a1a}
+.ticket .sub{font-size:.78rem;opacity:.7;font-style:italic;margin-bottom:16px}
+/* Zona de rasgado */
+.scratch-area{position:relative;width:100%;aspect-ratio:5/2;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#fff8e8,#ffeec8);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.prize-emoji{font-size:3rem}
+.prize-text{font-size:1.15rem;font-weight:700;color:#a86a1a}
+.prize-sub{font-size:.82rem;font-style:italic;opacity:.7}
+canvas.scratch{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
+.percent{position:absolute;right:10px;top:8px;font-size:.7rem;background:rgba(0,0,0,.55);color:#ffe8a8;padding:3px 10px;border-radius:999px;z-index:3;opacity:0;transition:opacity .3s}
+.percent.show{opacity:1}
+.foot{margin-top:16px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.hint{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#c9a86a;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}

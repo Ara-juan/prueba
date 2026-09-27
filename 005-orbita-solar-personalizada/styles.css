@@ -1,0 +1,22 @@
+/* Órbita Solar Personalizada · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#040610;--ink:#eef3ff;--accent:#7fd8ff}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden}
+#system{position:fixed;inset:0;display:block}
+.info{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:min(520px,92vw);background:rgba(10,16,34,.85);border:1px solid rgba(127,216,255,.3);border-radius:14px;padding:14px 18px;text-align:center;backdrop-filter:blur(4px);transition:border-color .3s}
+.info h2{margin:0 0 4px;font-size:1.05rem;color:var(--accent);font-weight:600;letter-spacing:.08em}
+.info p{margin:0;font-size:.92rem;opacity:.85;line-height:1.5}
+.hint{position:fixed;top:16px;width:100%;text-align:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;opacity:.5;pointer-events:none}

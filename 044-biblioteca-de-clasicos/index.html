@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca de Clásicos</title>
+  <meta name="description" content="Elige un lomo de la estantería: el libro se extrae y se abre en su capítulo dedicado. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Biblioteca de Clásicos · Una dedicatoria para ti">
+  <meta property="og:description" content="Elige un lomo de la estantería: el libro se extrae y se abre en su capítulo dedicado.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint">Elige un libro de la estantería 📚</p>
+<div class="shelf" id="shelf"></div>
+<div class="open-reader" id="reader">
+  <div class="reader">
+    <h2 id="rTitle"></h2>
+    <div class="chapter" id="rChapter"></div>
+    <div id="rBody"></div>
+    <button class="close" id="rClose">Devolver a la estantería</button>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

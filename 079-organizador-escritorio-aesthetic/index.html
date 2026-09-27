@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador Aesthetic (Post-its)</title>
+  <meta name="description" content="Panel tipo Notion pastel: listas de razones, notas adhesivas arrastrables y fotos del tablero. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Organizador Aesthetic (Post-its) · Una dedicatoria para ti">
+  <meta property="og:description" content="Panel tipo Notion pastel: listas de razones, notas adhesivas arrastrables y fotos del tablero.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>🌸 Tablero: Razones para quererte</h1><span>modo: siempre actualizado</span>
+</header>
+<div class="board">
+  <div class="list" id="list1">
+    <h2><span class="dot" style="background:#ffb3c8"></span>Razones de hoy</h2>
+    <div class="check done"><span class="box">✓</span><span class="txt">Tu risa arregla martes imposibles</span></div>
+    <div class="check done"><span class="box">✓</span><span class="txt">Escuchas sin juzgar (superpoder)</span></div>
+    <div class="check"><span class="box"></span><span class="txt">Tu forma de cuidar detalles</span></div>
+    <div class="check"><span class="box"></span><span class="txt">Los abrazos que curan todo</span></div>
+    <button class="add-btn" data-list="1">+ añadir razón</button>
+  </div>
+  <div class="list" id="list2">
+    <h2><span class="dot" style="background:#c9b3ff"></span>Planes bonitos</h2>
+    <div class="check"><span class="box"></span><span class="txt">Maratón de películas 🎬</span></div>
+    <div class="check"><span class="box"></span><span class="txt">Probar esa cafetería nueva ☕</span></div>
+    <div class="check"><span class="box"></span><span class="txt">Viaje sin destino 🚗</span></div>
+    <div class="check"><span class="box"></span><span class="txt">Ver el atardecer juntos 🌅</span></div>
+    <button class="add-btn" data-list="2">+ añadir plan</button>
+  </div>
+  <div class="list" id="list3">
+    <h2><span class="dot" style="background:#8ad8b0"></span>Notas rápidas</h2>
+    <div class="check"><span class="box" style="border-radius:50%;background:#ffe0d0;border-color:#ffe0d0">☺</span><span class="txt">Hoy mereces descansar mucho</span></div>
+    <div class="check"><span class="box" style="border-radius:50%;background:#d2f2e4;border-color:#d2f2e4">✿</span><span class="txt">No olvides lo increíble que eres</span></div>
+    <div class="check"><span class="box" style="border-radius:50%;background:#fff2c2;border-color:#fff2c2">★</span><span class="txt">Futuro: brillante. Garantizado.</span></div>
+  </div>
+  <div class="sticky-zone" id="zone">
+    <span class="label">zona de post-its · arrástralos donde quieras</span>
+    <div class="sticky s-pink" style="left:16px;top:44px;transform:rotate(-3deg)">Eres mi persona favorita. Punto final. ♥<span class="fold"></span></div>
+    <div class="sticky s-lav" style="left:200px;top:60px;transform:rotate(2deg)">Este tablero se actualiza solo: las razones crecen cada día.<span class="fold"></span></div>
+    <div class="sticky s-mint" style="left:390px;top:40px;transform:rotate(-1deg)">Tarea pendiente: sonreír. Estado: completado sin esfuerzo.<span class="fold"></span></div>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

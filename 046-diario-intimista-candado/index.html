@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario Íntimo con Candado</title>
+  <meta name="description" content="Ingresa la fecha especial como clave numérica para desbloquear el diario y leer sus páginas. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Diario Íntimo con Candado · Una dedicatoria para ti">
+  <meta property="og:description" content="Ingresa la fecha especial como clave numérica para desbloquear el diario y leer sus páginas.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="diary" id="diary">
+  <h1>Diario Privado</h1>
+  <div class="sub">La clave es la fecha que los dos sabemos… (pista: 14 de febrero)</div>
+  <div class="lock"><div class="shackle"></div><div class="body"></div></div>
+  <div class="dots" id="dots"><span></span><span></span><span></span><span></span></div>
+  <div class="pad" id="pad"></div>
+  <div class="status" id="status">Ingresa los 4 dígitos del día (0–9)</div>
+</div>
+<div class="pages" id="pages">
+  <div class="book">
+    <h2>Páginas que solo tú puedes leer</h2>
+    <div class="entry"><div class="date">14 · 02 — "El día que empezó todo"</div><p>Hoy pasó algo que todavía no sé explicar: apareciste. Y sin hacer ruido, cambiaste el orden de mis prioridades para siempre.</p></div>
+    <div class="entry"><div class="date">Anónimo — "Lo que apunto cuando sonríes"</div><p>Nota mental: la risa de esta persona debería estudiarse como fuente de energía renovable. No se agota y lo ilumina todo.</p></div>
+    <div class="entry"><div class="date">Ayer — "Gracias"</div><p>Gracias por cada pequeño gesto que nunca pides que se note. Lo noto. Lo todo. Te guardo en la página más segura de este diario.</p></div>
+    <button class="close-diary" id="closeDiary">Cerrar el diario 🔒</button>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

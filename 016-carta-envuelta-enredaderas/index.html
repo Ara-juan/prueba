@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Envuelta en Enredaderas</title>
+  <meta name="description" content="Una carta antigua que las enredaderas dibujan progresivamente con trazo SVG animado. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Carta Envuelta en Enredaderas · Una dedicatoria para ti">
+  <meta property="og:description" content="Una carta antigua que las enredaderas dibujan progresivamente con trazo SVG animado.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="paper">
+  <svg class="vines" viewBox="0 0 660 480" preserveAspectRatio="none" aria-hidden="true">
+    <path class="vine-path" d="M8,470 C80,380 40,300 110,250 C180,200 150,120 220,80 C270,50 260,10 300,-6"/>
+    <path class="vine-path v2" d="M652,470 C580,390 620,310 550,260 C480,210 510,130 440,90 C390,60 400,20 360,-6"/>
+    <path class="vine-path v3" d="M8,10 C90,60 130,20 200,40 C270,60 300,110 380,100"/>
+    <ellipse class="leaf" style="animation-delay:1.2s" cx="105" cy="262" rx="12" ry="5" transform="rotate(-40 105 262)"/>
+    <ellipse class="leaf" style="animation-delay:1.8s" cx="552" cy="270" rx="12" ry="5" transform="rotate(40 552 270)"/>
+    <ellipse class="leaf" style="animation-delay:2.6s" cx="222" cy="84" rx="11" ry="4.6" transform="rotate(-35 222 84)"/>
+    <ellipse class="leaf" style="animation-delay:3.2s" cx="438" cy="94" rx="11" ry="4.6" transform="rotate(35 438 94)"/>
+    <circle class="leaf" style="animation-delay:3.8s" cx="302" cy="42" r="4" fill="#e79ac0"/>
+    <circle class="leaf" style="animation-delay:4.1s" cx="366" cy="48" r="4" fill="#e79ac0"/>
+  </svg>
+  <h1>Para ti, con todo mi cariño</h1>
+  <p>Si las palabras pudieran florecer, este papel sería un jardín. Te escribo para decirte que eres de las cosas buenas que la vida me regaló sin que las pidiera.</p>
+  <p>Gracias por tu paciencia, por tu risa fácil y por quedarte incluso en los días difíciles.</p>
+  <p class="sig">— Alguien que te aprecia muchísimo</p>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Reproductor Estilo Spotify · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#121212;--card:#181818;--green:#1db954;--ink:#fff;--sub:#b3b3b3}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#243424 0%,var(--bg) 40%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:16px;user-select:none}
+.player{width:min(560px,96vw);background:var(--card);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden}
+.main{display:flex;gap:22px;padding:26px;align-items:center;flex-wrap:wrap}
+.cover{width:170px;height:170px;border-radius:10px;background:linear-gradient(135deg,#1db954,#1258d8 60%,#8a2ab8);display:flex;align-items:center;justify-content:center;font-size:4rem;box-shadow:0 14px 40px rgba(0,0,0,.5);animation:spin 14s linear infinite;animation-play-state:paused}
+.playing .cover{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.meta{flex:1;min-width:220px}
+.meta .label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sub)}
+.meta h1{margin:6px 0 4px;font-size:1.5rem}
+.meta p{margin:0;color:var(--sub);font-size:.9rem}
+.meta .hearts{margin-top:10px;font-size:1.2rem;cursor:pointer;filter:grayscale(1);transition:filter .3s}
+.meta .hearts.liked{filter:none}
+/* Letras sincronizadas */
+.lyrics{padding:6px 26px 18px;max-height:150px;overflow:hidden;position:relative}
+.lyrics::before,.lyrics::after{content:"";position:absolute;left:0;right:0;height:34px;pointer-events:none}
+.lyrics::before{top:0;background:linear-gradient(180deg,var(--card),transparent)}
+.lyrics::after{bottom:0;background:linear-gradient(0deg,var(--card),transparent)}
+.lyrics .line{padding:5px 0;color:var(--sub);transition:color .4s,transform .4s;font-size:.95rem}
+.lyrics .line.active{color:#fff;transform:scale(1.04);font-weight:600}
+/* Controles */
+.controls{display:flex;flex-direction:column;gap:8px;padding:0 26px 24px}
+.buttons{display:flex;align-items:center;justify-content:center;gap:22px}
+.buttons button{background:none;border:none;color:var(--sub);font-size:1.25rem;cursor:pointer;transition:color .2s,transform .1s}
+.buttons button:hover{color:#fff}
+.buttons .play{width:52px;height:52px;border-radius:50%;background:var(--green);color:#000;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:transform .15s}
+.buttons .play:hover{transform:scale(1.07);color:#000}
+.progress{display:flex;align-items:center;gap:10px;color:var(--sub);font-size:.72rem}
+.bar{flex:1;height:4px;background:#4d4d4d;border-radius:999px;position:relative;cursor:pointer}
+.bar .fill{position:absolute;inset:0 auto 0 0;width:0%;background:#fff;border-radius:999px}
+.bar .fill::after{content:"";position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:#fff;opacity:0;transition:opacity .2s}
+.bar:hover .fill::after{opacity:1}

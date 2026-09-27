@@ -1,0 +1,39 @@
+/* Claqueta de Rodaje · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#f2f2f2;--bg:#0c0c0e}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Courier New',monospace;overflow:hidden;display:flex;align-items:center;justify-content:center;user-select:none}
+.set{position:relative;width:min(700px,94vw);display:flex;flex-direction:column;align-items:center;gap:20px}
+.clapper{position:relative;width:min(420px,86vw);filter:drop-shadow(0 24px 50px rgba(0,0,0,.6));cursor:pointer;transform-origin:bottom center;transition:transform .3s}
+.clapper:hover{transform:scale(1.02)}
+.stick{height:34px;background:repeating-linear-gradient(135deg,#111 0 26px,#f2f2f2 26px 52px);border:3px solid #000;border-radius:4px;transform-origin:left bottom;transition:transform .18s cubic-bezier(.6,0,.4,1)}
+.stick.top{transform:rotate(-13deg)}
+.stick.top.open{transform:rotate(0deg)}
+.plate{background:#141414;border:3px solid #000;border-top:none;border-radius:0 0 6px 6px;padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:.82rem;letter-spacing:.06em}
+.plate b{font-weight:700;border-bottom:1px solid #444;padding-bottom:2px}
+.plate .field span{display:block;font-size:.64rem;opacity:.55;letter-spacing:.24em;text-transform:uppercase}
+.scene{position:relative;width:min(560px,90vw);height:280px;border:3px solid #333;border-radius:8px;overflow:hidden;background:linear-gradient(160deg,#1a2333,#0e1420);opacity:0;transform:scale(.94);transition:opacity .8s,transform .8s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px}
+.scene.on{opacity:1;transform:scale(1)}
+.scene .film{font-size:3.6rem;animation:float 3.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.scene h2{font-family:Georgia,serif;font-weight:normal;font-size:1.5rem;margin:0}
+.scene p{font-style:italic;opacity:.85;line-height:1.7;max-width:85%;margin:0}
+.take-tag{position:absolute;top:12px;left:14px;font-size:.72rem;letter-spacing:.24em;color:#ff5a5a;opacity:0}
+.scene.on .take-tag{opacity:1;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.action{font-size:clamp(1.4rem,5vw,2.2rem);font-weight:900;letter-spacing:.3em;color:#ffdf6a;opacity:0;transform:scale(2.4);position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:9;text-shadow:0 6px 30px rgba(255,180,40,.5)}
+.action.go{animation:actionPop .9s cubic-bezier(.2,1.4,.3,1) forwards}
+@keyframes actionPop{0%{opacity:0;transform:scale(2.4)}25%{opacity:1;transform:scale(1)}75%{opacity:1}100%{opacity:0;transform:scale(.92)}}
+.hint{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;opacity:.5}

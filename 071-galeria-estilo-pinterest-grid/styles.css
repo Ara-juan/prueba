@@ -1,0 +1,46 @@
+/* Galería Estilo Pinterest · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#faf6f1;--card:#fff;--ink:#4a4038;--peach:#ffd9c7;--lav:#e6dcff;--mint:#d4f3e7;--butter:#fff3c4}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;padding:26px 18px}
+header{text-align:center;margin-bottom:22px}
+header h1{font-weight:600;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.02em;margin:0}
+header p{opacity:.6;font-size:.9rem;margin:6px 0 0}
+.masonry{columns:4 180px;column-gap:16px;max-width:1200px;margin:0 auto}
+.pin{break-inside:avoid;margin-bottom:16px;background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(90,70,60,.08);cursor:zoom-in;transition:transform .3s cubic-bezier(.2,1.2,.3,1),box-shadow .3s}
+.pin:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 40px rgba(90,70,60,.16)}
+.pin .visual{height:150px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.pin:nth-child(4n+1) .visual{background:var(--peach)}
+.pin:nth-child(4n+2) .visual{background:var(--lav)}
+.pin:nth-child(4n+3) .visual{background:var(--mint)}
+.pin:nth-child(4n+4) .visual{background:var(--butter)}
+.pin .txt{padding:12px 14px 16px}
+.pin .txt b{display:block;font-size:.92rem;margin-bottom:4px}
+.pin .txt span{font-size:.78rem;opacity:.55}
+.pin .save{opacity:0;transform:translateY(-6px);transition:.25s;background:#ff8fab;color:#fff;border:none;border-radius:999px;padding:7px 16px;font-size:.78rem;font-weight:700;position:absolute;right:12px;top:12px;cursor:pointer;box-shadow:0 6px 16px rgba(255,143,171,.5)}
+.pin{position:relative}
+.pin:hover .save{opacity:1;transform:none}
+.pin .saved{opacity:1 !important;background:#e8e0d4 !important;color:#8a7a68 !important;box-shadow:none !important}
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(70,60,50,.4);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal.show{display:flex}
+.modal-box{width:min(420px,94vw);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.3);animation:zoomIn .4s cubic-bezier(.2,1.3,.3,1)}
+@keyframes zoomIn{from{transform:scale(.8) translateY(30px);opacity:0}}
+.modal-visual{height:210px;display:flex;align-items:center;justify-content:center;font-size:4.4rem}
+.modal-body{padding:24px 26px 28px;text-align:center}
+.modal-body h2{margin:0 0 10px;font-size:1.25rem;font-weight:600}
+.modal-body p{line-height:1.8;opacity:.75;margin:0 0 20px;font-size:.95rem}
+.modal-body button{background:#ff8fab;color:#fff;border:none;border-radius:999px;padding:12px 32px;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(255,143,171,.45);transition:transform .15s}
+.modal-body button:hover{transform:scale(1.05)}

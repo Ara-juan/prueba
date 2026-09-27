@@ -1,0 +1,38 @@
+/* Cinta Cassette Mixtape · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--shell:#2a2d33;--ink:#e8e4d8}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#20242c,#121418 75%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;user-select:none}
+.cassette{position:relative;width:min(480px,92vw);aspect-ratio:16/10;background:linear-gradient(160deg,#3a3e46,#22252b);border-radius:10px;box-shadow:0 26px 60px rgba(0,0,0,.7),inset 0 2px 0 rgba(255,255,255,.12);padding:16px;display:flex;flex-direction:column;gap:10px}
+/* Etiqueta writable */
+.label{background:#f0ead8;color:#3a3228;border-radius:4px;padding:10px 14px;flex:1;display:flex;flex-direction:column;justify-content:center;box-shadow:inset 0 0 12px rgba(120,100,60,.2)}
+.label input{background:transparent;border:none;border-bottom:2px dashed #a89878;color:#3a3228;font-family:'Segoe Script','Brush Script MT',cursive;font-size:1.2rem;width:100%;outline:none;text-align:center}
+.label input::placeholder{color:#a89878}
+.label .side{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:#8a7a5a;text-align:center;margin-top:6px}
+/* Ventana de carretes */
+.window{background:#12141a;border-radius:6px;height:44%;display:flex;align-items:center;justify-content:space-around;box-shadow:inset 0 4px 12px rgba(0,0,0,.8);position:relative;overflow:hidden}
+.window::after{content:"";position:absolute;left:0;right:0;top:50%;height:6px;background:#8a4a2a;opacity:.55}   /* cinta */
+.reel{width:26%;aspect-ratio:1;border-radius:50%;border:6px solid #16181d;background:repeating-conic-gradient(#4a4e58 0 20deg,#2a2d35 20deg 40deg);position:relative;animation:spin 3s linear infinite;animation-play-state:paused}
+.playing .reel{animation-play-state:running}
+.reel:nth-child(2){animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reel::after{content:"";position:absolute;inset:22%;border-radius:50%;background:#16181d;box-shadow:inset 0 0 0 3px #0c0d10}
+.holes{display:flex;gap:14px;justify-content:center}
+.holes i{width:12px;height:12px;border-radius:50%;background:#12141a}
+.controls{display:flex;gap:12px;justify-content:center}
+.controls button{background:#e8e4d8;color:#22252b;border:none;border-radius:6px;padding:10px 22px;font-family:'Courier New',monospace;font-weight:700;font-size:.85rem;letter-spacing:.1em;cursor:pointer;box-shadow:0 3px 0 #a8a494;transition:.12s}
+.controls button:active{transform:translateY(2px);box-shadow:0 1px 0 #a8a494}
+.controls button.on{background:#c94a4a;color:#fff;box-shadow:0 3px 0 #7a2a2a}
+.tracklist{font-size:.78rem;font-style:italic;opacity:.6;text-align:center;line-height:1.7}

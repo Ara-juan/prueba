@@ -1,0 +1,31 @@
+/* Antología de Poemas · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#faf8f4;--ink:#2a2620}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;transition:background .8s}
+/* Zona de marcapáginas */
+.marks{width:96px;display:flex;flex-direction:column;gap:0;padding-top:8vh;border-right:1px solid #e2ddd2;background:#f2efe8}
+.mark{position:relative;height:88px;border:none;cursor:pointer;padding:0;transition:transform .3s;transform-origin:right center}
+.mark i{position:absolute;inset:6px 10px;background:var(--c);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);display:flex;align-items:flex-start;justify-content:center;color:#fff;font-size:.72rem;padding-top:12px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,.2);transition:filter .3s}
+.mark:hover{transform:translateX(-8px)}
+.mark.active{transform:translateX(-14px)}
+.mark.active i{filter:brightness(1.15) saturate(1.2);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;position:relative}
+.poem{max-width:560px;transition:opacity .5s,transform .5s;text-align:center}
+.poem.switching{opacity:0;transform:translateY(16px)}
+.poem h1{font-weight:normal;font-size:clamp(1.3rem,4vw,2rem);margin:0 0 26px;letter-spacing:.04em}
+.poem .lines{font-size:clamp(1rem,2.6vw,1.2rem);line-height:2.2;white-space:pre-line}
+.poem .author{margin-top:26px;font-size:.85rem;opacity:.55;font-style:italic}
+@media (max-width:560px){.marks{width:70px}.mark{height:72px}}

@@ -1,0 +1,20 @@
+/* Burbujas de Jabón Pastel · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#eef4fb;--ink:#4a5468}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#e4ecf8,#f6e8f0);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;user-select:none}
+#sky{position:fixed;inset:0;display:block;cursor:pointer}
+.hint{position:fixed;top:20px;left:0;right:0;text-align:center;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;opacity:.5;pointer-events:none}
+.word{position:fixed;font-family:Georgia,serif;font-style:italic;font-size:1.05rem;pointer-events:none;z-index:10;transition:transform 1.4s ease-out,opacity 1.4s;text-shadow:0 1px 0 rgba(255,255,255,.8);white-space:nowrap;transform:translate(-50%,-50%)}

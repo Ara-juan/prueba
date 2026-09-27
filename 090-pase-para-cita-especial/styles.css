@@ -1,0 +1,38 @@
+/* Cupón de Cita Especial · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#fffdf6;--ink:#4a3c30;--pink:#e86a8a;--mint:#5ab8a0}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(160deg,#fdeef2,#e8f4f0);color:var(--ink);font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:34px 16px;min-height:100vh}
+.coupon{position:relative;width:min(520px,94vw);background:var(--paper);border-radius:16px;box-shadow:0 30px 70px rgba(160,100,90,.25);display:grid;grid-template-columns:1fr 120px;overflow:hidden;transform:rotate(-1deg)}
+.coupon.redeemed{animation:stampIn .6s cubic-bezier(.2,1.5,.3,1)}
+@keyframes stampIn{0%{transform:rotate(-1deg) scale(1)}40%{transform:rotate(-1deg) scale(1.04)}70%{transform:rotate(-1deg) scale(.98)}100%{transform:rotate(-1deg)}}
+.c-main{padding:28px 28px 24px;position:relative}
+.c-main::after{content:"";position:absolute;right:0;top:0;bottom:0;border-right:3px dashed #d8c8b8}
+.c-brand{font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mint);margin-bottom:8px}
+.c-main h1{margin:0 0 8px;font-weight:normal;font-size:clamp(1.4rem,5vw,2rem);line-height:1.2}
+.c-main h1 em{color:var(--pink);font-style:italic}
+.c-main p{margin:0 0 18px;font-size:.9rem;line-height:1.7;opacity:.8}
+.redeem-btn{background:var(--pink);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-family:Georgia,serif;font-size:.95rem;letter-spacing:.1em;cursor:pointer;box-shadow:0 10px 26px rgba(232,106,138,.4);transition:transform .15s,background .3s}
+.redeem-btn:hover{transform:translateY(-2px)}
+.redeem-btn:disabled{background:var(--mint);box-shadow:none;cursor:default;transform:none}
+/* Talón del cupón */
+.c-stub{background:var(--mint);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:18px 12px}
+.c-stub .icon{font-size:2.2rem}
+.c-stub b{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.c-stub span{font-size:.62rem;opacity:.85;letter-spacing:.1em}
+/* Sello de canjeado */
+.stamp{position:absolute;left:38%;top:20px;transform:rotate(-14deg) scale(3);border:4px solid var(--pink);color:var(--pink);border-radius:12px;padding:8px 20px;font-weight:900;letter-spacing:.24em;font-size:1.05rem;text-transform:uppercase;opacity:0;pointer-events:none;transition:transform .45s cubic-bezier(.2,1.6,.3,1),opacity .3s;background:rgba(255,255,255,.75)}
+.stamp.show{opacity:.92;transform:rotate(-14deg) scale(1)}
+.terms{font-size:.68rem;opacity:.55;font-style:italic;margin-top:14px}

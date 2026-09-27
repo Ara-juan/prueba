@@ -1,0 +1,40 @@
+/* Pase VIP de Concierto · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--neon:#ff2d78;--dark:#120a14;--gold:#ffd23c;--ink:#f5ecf5}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 0,#221228,var(--dark) 65%);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;user-select:none}
+.stage-bg{position:fixed;inset:0;pointer-events:none}
+.stage-bg .beam{position:absolute;top:-10%;width:140px;height:80%;background:linear-gradient(180deg,rgba(255,45,120,.28),transparent);transform-origin:top center;filter:blur(4px)}
+.stage-bg .b1{left:18%;animation:sway 5s ease-in-out infinite alternate}
+.stage-bg .b2{left:48%;animation:sway 6.5s ease-in-out infinite alternate-reverse;background:linear-gradient(180deg,rgba(60,180,255,.22),transparent)}
+.stage-bg .b3{left:74%;animation:sway 5.6s ease-in-out infinite alternate;background:linear-gradient(180deg,rgba(255,210,60,.2),transparent)}
+@keyframes sway{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.title{margin-top:20px;text-align:center;z-index:2;pointer-events:none}
+.title h1{font-size:clamp(.9rem,3vw,1.3rem);letter-spacing:.5em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 18px rgba(255,210,60,.7);margin:0 0 4px}
+.title p{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin:0}
+/* Cordón + credencial con física de péndulo */
+.pendulum{position:relative;margin-top:26px;transform-origin:top center;will-change:transform}
+.cord{width:3px;height:110px;background:linear-gradient(180deg,#6a6a72,#3a3a42);margin:0 auto}
+.badge{width:min(300px,84vw);background:linear-gradient(165deg,#1e1424,#120a16);border:2px solid var(--neon);border-radius:14px;box-shadow:0 20px 50px rgba(255,45,120,.25),inset 0 0 30px rgba(255,45,120,.08);overflow:hidden;cursor:grab;touch-action:none}
+.badge:active{cursor:grabbing}
+.badge .top{background:var(--neon);color:#fff;text-align:center;padding:9px;font-weight:900;letter-spacing:.35em;font-size:.8rem}
+.badge .photo{width:92px;height:92px;margin:16px auto 8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4a3a5a,#241a30);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.badge .name{text-align:center;font-weight:900;font-size:1.15rem;letter-spacing:.06em}
+.badge .role{text-align:center;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin:4px 0 12px}
+.badge .perks{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 16px 16px;font-size:.62rem}
+.badge .perks span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:5px 8px;text-align:center;letter-spacing:.06em}
+.badge .barcode{height:34px;margin:0 16px 16px;background:repeating-linear-gradient(90deg,#f5ecf5 0 2px,transparent 2px 5px,#f5ecf5 5px 6px,transparent 6px 11px);border-radius:3px;opacity:.8}
+.lanyard-text{position:absolute;left:50%;top:34px;transform:translateX(-50%);font-size:.6rem;letter-spacing:.3em;color:#9a8aa2;white-space:nowrap}
+.hint{position:fixed;bottom:18px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;opacity:.45;pointer-events:none;z-index:3}

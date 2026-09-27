@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj de Arena Interactivo</title>
+  <meta name="description" content="La arena carmesí cae con física real en Canvas; al agotarse, libera el mensaje sellado. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Reloj de Arena Interactivo · Una dedicatoria para ti">
+  <meta property="og:description" content="La arena carmesí cae con física real en Canvas; al agotarse, libera el mensaje sellado.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="hourglass"></canvas>
+<p class="hint" id="hint">La arena cae… cada grano es un momento contigo</p>
+<div class="msg" id="msg">
+  <h2>⏳ El tiempo se agotó…</h2>
+  <p>…y descubrimos que era mentira: contigo los minutos no se pierden, se coleccionan. Cada grano de esta arena es un recuerdo que prefiero no soltar jamás.</p>
+  <button id="again">Voltear el reloj de nuevo</button>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

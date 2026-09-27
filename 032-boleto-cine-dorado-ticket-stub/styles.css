@@ -1,0 +1,40 @@
+/* Boleto de Cine Dorado · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--gold:#d4af37;--gold-dark:#8a6d1f;--ink:#2c2205}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#241d08,#0d0a03 70%);font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:20px;overflow:hidden}
+.stage{perspective:1200px}
+.ticket{position:relative;display:grid;grid-template-columns:1fr 150px;width:min(640px,92vw);background:linear-gradient(120deg,#f4d97a,#d4af37 45%,#b8942a);color:var(--ink);border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.65),inset 0 2px 0 rgba(255,255,255,.5);transform:rotate(-2deg);transition:transform .9s cubic-bezier(.4,0,.2,1),opacity .9s;cursor:pointer;user-select:none}
+.ticket:hover{transform:rotate(-1deg) translateY(-4px)}
+.ticket.ripped .main{animation:rip .8s ease forwards}
+.ticket.ripped .stub{animation:ripStub .8s ease forwards}
+@keyframes rip{to{transform:translateX(38px) rotate(2deg);opacity:0}}
+@keyframes ripStub{to{transform:translateX(-46px) rotate(-4deg);opacity:0}}
+.main{padding:26px 28px;position:relative}
+.main::after{content:"";position:absolute;right:-2px;top:0;bottom:0;border-right:3px dashed rgba(70,50,5,.55)}
+.stub{padding:26px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-left:3px dashed rgba(70,50,5,.55);text-align:center}
+.brand{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;opacity:.75}
+h1{margin:6px 0 2px;font-size:clamp(1.3rem,4vw,1.9rem);font-weight:700;letter-spacing:.02em}
+.admit{font-size:.8rem;font-style:italic;opacity:.8}
+.meta{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;font-size:.78rem}
+.meta div b{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65}
+.stub .num{font-size:.8rem;letter-spacing:.18em}
+.stub .icon{font-size:2rem}
+.revealed{max-width:min(560px,90vw);background:#f7f0d8;color:#3a2e10;padding:30px 30px;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.6);text-align:center;font-style:italic;line-height:1.8;opacity:0;transform:translateY(24px);transition:opacity .9s .3s,transform .9s .3s;position:relative}
+.revealed.show{opacity:1;transform:none}
+.revealed::before{content:"🎟️";position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:1.8rem}
+.revealed b{font-style:normal;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;color:#8a6d1f;display:block;margin-bottom:8px}
+.hint{color:#c9b06a;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}

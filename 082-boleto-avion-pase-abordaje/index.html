@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pase de Abordaje</title>
+  <meta name="description" content="Boleto de vuelo estilizado con "QR" interactivo, solapa desprendible y destino: el evento. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pase de Abordaje · Una dedicatoria para ti">
+  <meta property="og:description" content="Boleto de vuelo estilizado con "QR" interactivo, solapa desprendible y destino: el evento.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="boarding">
+  <div class="main">
+    <div class="airline"><span class="plane">✈</span> CORAZÓN AIRWAYS · BOARDING PASS</div>
+    <div class="route">
+      <span class="code">MEL</span>
+      <span class="mid"><span class="duration">Vuelo directo · 1 vida</span><span class="line"></span><span class="duration" style="font-size:.64rem">Miércoles 14 · 17:00</span></span>
+      <span class="code">TÚ</span>
+    </div>
+    <div class="meta-grid">
+      <div><b>Pasajero</b><span>Persona favorita</span></div>
+      <div><b>Vuelo</b><span>NOS-143</span></div>
+      <div><b>Asiento</b><span>1-A (mi lado)</span></div>
+      <div><b>Puerta</b><span>EL CORAZÓN</span></div>
+    </div>
+  </div>
+  <div class="stub" id="stub">
+    <div class="qr" id="qr"></div>
+    <p>Flight NOS-143<br>Gate E-1 · Seat 1-A</p>
+  </div>
+</div>
+<p class="pull-hint" id="hint">Arrastra el talón azul para despegar la solapa ✈</p>
+<div class="gate-info" id="gateInfo">
+  <span class="big">🛫</span>
+  <div><b>Embarque inmediato:</b> tu vuelo hacia "Una Aventura Juntos" está listo. Documentación requerida: solo tu sonrisa. Equipaje permitido: toda la ilusión que quepa. ¡Buen viaje (y que el asiento de al lado sea siempre mío)!</div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

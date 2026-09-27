@@ -1,0 +1,33 @@
+/* Caja de Cartas con Sello de Cera · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#f5eeda;--ink:#4a3b28}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#262014,#14100a 75%);font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+.envelope{position:relative;width:min(560px,92vw);aspect-ratio:10/7;perspective:1400px;cursor:pointer}
+.env-body{position:absolute;inset:0;background:linear-gradient(160deg,#efe5c8,#e2d4ae);border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.55);transform:rotateX(12deg)}
+.env-back{position:absolute;inset:0;background:linear-gradient(160deg,#e8dcba,#d8c8a0);border-radius:6px;transform:rotateX(12deg) translateZ(-2px)}
+.flap{position:absolute;left:0;right:0;top:0;height:58%;background:linear-gradient(180deg,#e2d4ae,#d4c49a);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform 1s cubic-bezier(.6,0,.3,1);transform:rotateX(12deg);z-index:3;backface-visibility:hidden;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.envelope.open .flap{transform:rotateX(12deg) rotateX(160deg);z-index:1}
+.seal{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d84545,#8a1a1a 65%);box-shadow:0 10px 24px rgba(0,0,0,.45),inset 0 -5px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:#f3d9d9;font-size:1.8rem;cursor:grab;z-index:4;transition:transform .3s,opacity .4s;user-select:none}
+.seal:hover{transform:translate(-50%,-50%) scale(1.07) rotate(-4deg)}
+.seal.lifted{animation:lift .7s ease forwards;pointer-events:none}
+@keyframes lift{to{transform:translate(-50%,-180%) rotate(30deg);opacity:0}}
+.letter-out{position:absolute;left:6%;right:6%;top:8%;bottom:8%;background:linear-gradient(160deg,#fbf6e8,#f0e8d0);color:var(--ink);border-radius:4px;padding:30px 30px;transform:translateY(40%) scale(.9);opacity:0;transition:transform 1s cubic-bezier(.2,1.2,.3,1),opacity .8s;z-index:2;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.envelope.open .letter-out{transform:translateY(-6%) scale(1);opacity:1}
+.letter-out h2{margin:0 0 12px;font-weight:normal;font-style:italic;color:#6b4a2a}
+.letter-out p{line-height:1.9;margin:0 0 10px;font-size:clamp(.85rem,2.2vw,.98rem)}
+.wax-bits{position:fixed;pointer-events:none;z-index:20;font-size:12px;transition:transform 1s ease-out,opacity 1s}
+.hint{position:fixed;bottom:26px;left:0;right:0;text-align:center;color:#c9b788;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}

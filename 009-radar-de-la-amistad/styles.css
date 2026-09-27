@@ -1,0 +1,21 @@
+/* Radar de la Amistad · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--green:#3dff88;--dark:#021207}
+html,body{height:100%}
+body{margin:0;background:#000;color:var(--green);font-family:'Courier New',monospace;overflow:hidden}
+#radar{position:fixed;inset:0;display:block;cursor:pointer}
+.header{position:fixed;top:18px;left:0;right:0;text-align:center;letter-spacing:.3em;text-transform:uppercase;font-size:.9rem;opacity:.85;pointer-events:none}
+.log{position:fixed;bottom:14px;left:16px;font-size:.8rem;line-height:1.6;opacity:.8;pointer-events:none;max-width:90vw}
+.log span{display:block}

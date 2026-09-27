@@ -1,0 +1,38 @@
+/* Test de Compatibilidad (Siempre 100%) · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#fdf4f6;--ink:#5a3a48;--pink:#e86a9a;--lav:#b89ae8}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(160deg,#fdeef4,#f0e8fa);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px 16px;gap:20px}
+.mag{width:min(520px,94vw);background:#fff;border-radius:20px;box-shadow:0 24px 60px rgba(180,120,150,.25);padding:30px 28px;position:relative;overflow:hidden}
+.mag::before{content:"COMPATIBILITY TEST";position:absolute;top:14px;right:-38px;transform:rotate(38deg);background:var(--lav);color:#fff;font-size:.6rem;letter-spacing:.24em;padding:5px 44px;font-weight:800}
+.mag h1{margin:0 0 4px;font-size:1.5rem;text-align:center}
+.mag .sub{text-align:center;font-style:italic;opacity:.65;font-size:.88rem;margin-bottom:22px}
+.q{margin-bottom:18px}
+.q h2{font-size:.95rem;margin:0 0 10px;font-weight:600}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{text-align:left;border:1.5px solid #ecd8e4;border-radius:12px;padding:11px 16px;background:#fff;cursor:pointer;font-size:.9rem;transition:.2s;font-family:inherit;color:inherit}
+.opt:hover{border-color:var(--pink);background:#fff5f9;transform:translateX(5px)}
+.opt.picked{border-color:var(--pink);background:var(--pink);color:#fff}
+/* Resultado */
+.result{text-align:center;display:none;animation:popUp .7s cubic-bezier(.2,1.3,.3,1)}
+.result.show{display:block}
+@keyframes popUp{from{transform:scale(.6);opacity:0}}
+.meter{position:relative;width:min(280px,80vw);height:150px;margin:8px auto 6px}
+.meter svg{width:100%;height:100%}
+.meter .arc-bg{fill:none;stroke:#f0dce8;stroke-width:16;stroke-linecap:round}
+.meter .arc{fill:none;stroke:url(#grad);stroke-width:16;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 2.2s cubic-bezier(.3,1,.3,1)}
+.meter .pct{position:absolute;left:0;right:0;bottom:14px;font-size:2.6rem;font-weight:800;color:var(--pink);font-variant-numeric:tabular-nums}
+.verdict{font-style:italic;line-height:1.9;opacity:.85;margin:10px 0 18px}
+.again{border:1.5px solid var(--pink);background:none;color:var(--pink);border-radius:999px;padding:11px 30px;font-family:inherit;cursor:pointer;letter-spacing:.1em}

@@ -1,0 +1,47 @@
+/* Pase de Abordaje · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--navy:#1a2a4a;--sky:#e8f0f8;--accent:#d84a5a;--ink:#22304a}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(160deg,#cfe0f0,#a8c4e0);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:34px 16px;min-height:100vh}
+.boarding{display:grid;grid-template-columns:1fr 170px;width:min(620px,94vw);background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(30,50,90,.35);transform:rotate(-1.2deg);position:relative}
+.main{padding:22px 24px;position:relative}
+.main::after{content:"";position:absolute;right:-2px;top:0;bottom:0;border-right:2px dashed #b8c4d4}
+.airline{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:800;letter-spacing:.06em}
+.airline .plane{color:var(--accent);font-size:1.2rem}
+.route{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px}
+.route .code{font-size:clamp(2rem,8vw,3rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.route .mid{text-align:center;flex:1;padding:0 10px}
+.route .mid .line{height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 14px);position:relative;margin:6px 0}
+.route .mid .line::before,.route .mid .line::after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.route .mid .line::before{left:0}.route .mid .line::after{right:0}
+.route .mid .duration{font-size:.7rem;letter-spacing:.2em;color:#8a94a8;text-transform:uppercase}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+@media (max-width:520px){.meta-grid{grid-template-columns:repeat(2,1fr)}}
+.meta-grid div b{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#8a94a8}
+.meta-grid div span{font-weight:700;font-size:.92rem}
+/* Talón con QR */
+.stub{background:var(--navy);color:#fff;padding:20px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:grab;touch-action:none;user-select:none;transition:transform .4s,opacity .4s}
+.stub:active{cursor:grabbing}
+.stub.taken{transform:translateX(70px) rotate(6deg);opacity:0}
+.stub .qr{width:110px;height:110px;background:#fff;border-radius:8px;padding:8px;display:grid;grid-template-columns:repeat(11,1fr);grid-template-rows:repeat(11,1fr);gap:1px}
+.stub .qr i{background:transparent}
+.stub .qr i.on{background:var(--navy)}
+.stub p{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;opacity:.85;margin:0}
+.pull-hint{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:#5a6a84;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+/* Panel de información tras arrancar la solapa */
+.gate-info{width:min(620px,94vw);background:rgba(255,255,255,.85);border-radius:12px;padding:18px 22px;display:none;gap:16px;align-items:center;box-shadow:0 16px 40px rgba(30,50,90,.2);font-size:.9rem;line-height:1.7}
+.gate-info.show{display:flex}
+.gate-info .big{font-size:2.2rem}

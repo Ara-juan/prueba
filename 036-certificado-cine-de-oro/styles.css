@@ -1,0 +1,38 @@
+/* Certificado de Cine de Oro · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--gold1:#f6e27a;--gold2:#cba135;--gold3:#8a6d1f;--ink:#3a2e10}
+html,body{height:100%}
+body{margin:0;background:#1a0d0d;font-family:Georgia,serif;overflow:hidden;display:flex;align-items:center;justify-content:center;user-select:none}
+/* Cortinas rojas */
+.curtain{position:fixed;top:0;bottom:0;width:52%;z-index:3;transition:transform 1.6s cubic-bezier(.65,0,.35,1);background:repeating-linear-gradient(90deg,#7a1420 0 18px,#5a0e18 18px 42px,#8a1a28 42px 60px);box-shadow:inset 0 0 60px rgba(0,0,0,.6)}
+.curtain::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(0,0,0,.25) 30px 34px)}
+.curtain.left{left:0;border-right:8px solid #4a0a10}
+.curtain.right{right:0;border-left:8px solid #4a0a10}
+body.open .curtain.left{transform:translateX(-102%)}
+body.open .curtain.right{transform:translateX(102%)}
+.valance{position:fixed;top:0;left:0;right:0;height:70px;background:repeating-linear-gradient(90deg,#7a1420 0 40px,#5a0e18 40px 80px);z-index:4;border-bottom:14px solid #4a0a10;border-radius:0 0 40% 40%/0 0 100% 100%}
+.stage{position:relative;width:min(680px,92vw);z-index:1;opacity:.25;transform:scale(.9);transition:opacity 1.4s .8s,transform 1.4s .8s}
+body.open .stage{opacity:1;transform:scale(1)}
+.certificate{background:linear-gradient(160deg,#fdf6dd,#f3e5b8);border:12px solid;border-image:linear-gradient(135deg,var(--gold1),var(--gold3),var(--gold1)) 1;padding:clamp(28px,5vw,52px);text-align:center;color:var(--ink);box-shadow:0 40px 100px rgba(0,0,0,.7);position:relative}
+.certificate::before{content:"";position:absolute;inset:14px;border:1.5px solid var(--gold3);pointer-events:none}
+.certificate .laurel{font-size:2.2rem;letter-spacing:.4em}
+.certificate h1{margin:8px 0 4px;font-size:clamp(1.3rem,4vw,2rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(120deg,var(--gold3),var(--gold2),var(--gold1),var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.certificate .sub{font-style:italic;font-size:.95rem;margin-bottom:22px}
+.certificate .recipient{font-family:'Brush Script MT','Segoe Script',cursive;font-size:clamp(1.8rem,6vw,2.8rem);margin:10px 0;border-bottom:1.5px solid var(--gold3);display:inline-block;padding:0 34px 4px}
+.certificate p{line-height:1.8;font-size:.98rem;max-width:92%;margin:14px auto}
+.medal{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:linear-gradient(120deg,var(--gold1),var(--gold2));color:#3a2a05;padding:10px 24px;border-radius:999px;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 8px 24px rgba(140,100,20,.5);font-weight:700}
+.start{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:5;background:rgba(20,8,8,.8);border:1.5px solid var(--gold2);color:var(--gold1);padding:12px 30px;letter-spacing:.26em;text-transform:uppercase;font-size:.8rem;cursor:pointer;font-family:inherit;transition:.25s}
+.start:hover{background:var(--gold2);color:#1a0d0d}
+body.open .start{opacity:0;pointer-events:none}

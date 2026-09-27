@@ -1,0 +1,32 @@
+/* Tiras de Fotogramas Vintage · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#e8e2d0;--bg:#0d0c0a}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,serif;overflow:hidden;user-select:none}
+header{position:fixed;top:22px;left:0;right:0;text-align:center;z-index:5;pointer-events:none}
+header h1{font-weight:normal;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(.9rem,2.8vw,1.3rem);margin:0}
+header p{font-style:italic;opacity:.6;font-size:.85rem;margin:6px 0 0}
+.filmstrip{position:absolute;white-space:nowrap;padding:18px 0;background:#161513;box-shadow:0 20px 60px rgba(0,0,0,.6);will-change:transform}
+.filmstrip .holes{position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,transparent 0 6px,#000 6px 26px,transparent 26px 32px);opacity:.85}
+.filmstrip .holes.top{top:2px}.filmstrip .holes.bottom{bottom:2px}
+.frames{display:inline-flex;gap:16px;padding:0 16px}
+.frame{width:200px;height:140px;background:linear-gradient(160deg,#26221c,#171410);border:2px solid #3a352c;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.frame .num{position:absolute;top:6px;left:8px;font-size:.6rem;letter-spacing:.2em;opacity:.5;font-family:'Courier New',monospace}
+.frame .emoji{font-size:2.6rem;filter:sepia(.5) contrast(1.05)}
+.frame p{margin:0;font-size:.72rem;font-style:italic;opacity:.75;text-align:center;padding:0 10px}
+/* Tres tiras a distintas profundidades para el paralaje */
+#s1{top:22%;width:130%}#s1 .frame{width:220px;height:150px}
+#s2{top:46%;width:160%;opacity:.85}
+#s3{top:70%;width:120%;opacity:.7}#s3 .frame{transform:scale(.88)}

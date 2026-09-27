@@ -1,0 +1,41 @@
+/* Calendario Save the Date · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#fdfaf4;--ink:#3a342a;--accent:#e07a5f;--sage:#81a684}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(180deg,#f2ede2,#e8e0d0);color:var(--ink);font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;padding:34px 16px;gap:22px}
+.cal{width:min(480px,94vw);background:var(--paper);border-radius:16px;box-shadow:0 24px 60px rgba(90,70,40,.22);padding:26px;position:relative}
+.cal::before{content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:110px;height:28px;background:repeating-linear-gradient(45deg,#d4b86a 0 6px,#e8d49a 6px 12px);border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.cal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cal h1{font-size:1.3rem;font-weight:normal;margin:0;letter-spacing:.06em}
+.cal header .nav{display:flex;gap:6px}
+.cal header button{width:30px;height:30px;border-radius:50%;border:1px solid #d8ccb2;background:#fff;cursor:pointer;font-size:.9rem;color:var(--ink)}
+.weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px}
+.weekdays span{text-align:center;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:.92rem;cursor:default;position:relative;transition:.2s;background:transparent;border:none;font-family:inherit;color:var(--ink)}
+.day.other{opacity:.25}
+.day.today{border:1.5px solid var(--sage);color:var(--sage);font-weight:700}
+.day.event{background:var(--accent);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 0 0 rgba(224,122,95,.5);animation:glowPulse 2s infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,122,95,.45)}50%{box-shadow:0 0 0 10px rgba(224,122,95,0)}}
+.day.event:hover{transform:scale(1.1)}
+.itinerary{width:min(480px,94vw);background:var(--paper);border-radius:16px;box-shadow:0 24px 60px rgba(90,70,40,.22);padding:24px 26px;max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.6,0,.3,1),opacity .5s;opacity:0}
+.itinerary.open{max-height:600px;opacity:1}
+.itinerary h2{margin:0 0 4px;font-weight:normal;font-size:1.15rem;color:var(--accent)}
+.itinerary .sub{font-size:.8rem;opacity:.6;margin-bottom:14px}
+.stop{display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed #d8ccb2;align-items:flex-start}
+.stop:last-child{border:none}
+.stop .time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--sage);min-width:66px;font-size:.85rem}
+.stop .what b{display:block;font-size:.95rem}
+.stop .what span{font-size:.82rem;opacity:.65;font-style:italic}

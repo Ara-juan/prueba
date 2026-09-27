@@ -1,0 +1,21 @@
+/* Lluvia de Estrellas Fugaces · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#f2ecff}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(#050313,#12082e 60%,#1c0f3f);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden}
+#sky{position:fixed;inset:0;display:block;cursor:pointer}
+.wish{position:fixed;padding:10px 18px;background:rgba(20,10,50,.85);border:1px solid rgba(190,150,255,.4);border-radius:999px;font-size:.95rem;pointer-events:none;transform:translate(-50%,-50%) scale(.5);opacity:0;transition:opacity .5s,transform .5s;z-index:3;font-style:italic;text-shadow:0 0 12px rgba(190,150,255,.8)}
+.wish.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.hint{position:fixed;bottom:24px;width:100%;text-align:center;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;opacity:.5;pointer-events:none}

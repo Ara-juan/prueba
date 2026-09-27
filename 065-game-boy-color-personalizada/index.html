@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Boy Color de Mensajes</title>
+  <meta name="description" content="Consola retro con botones funcionales: recorre los "niveles" de nuestros mejores momentos. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Game Boy Color de Mensajes · Una dedicatoria para ti">
+  <meta property="og:description" content="Consola retro con botones funcionales: recorre los "niveles" de nuestros mejores momentos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="gbc">
+  <div class="bezel">
+    <div class="screen" id="screen">
+      <div class="top"><span>NIVEL <b id="lvl">1</b>/5</span><span>♥♥♥</span><span>▽ BATERÍA</span></div>
+      <div class="art" id="art">🌟</div>
+      <div class="body" id="body"></div>
+    </div>
+  </div>
+  <div class="brand"><span class="dot"></span>GAME BOY DEL CARIÑO<span class="dot"></span></div>
+  <div class="controls">
+    <div class="dpad">
+      <button class="up" data-nav="-1">▲</button><button class="mid"></button>
+      <button class="left" data-nav="-1">◀</button><button class="right" data-nav="1">▶</button>
+      <button class="down" data-nav="1">▼</button>
+    </div>
+    <div class="ab"><button id="btnA">A</button><button id="btnB">B</button></div>
+  </div>
+  <div class="startsel"><button id="selBtn"></button><button id="startBtn2"></button></div>
+  <p class="hint">Cruzeta o botones A/B para navegar los niveles</p>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

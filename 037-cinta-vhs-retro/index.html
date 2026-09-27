@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinta VHS Retro</title>
+  <meta name="description" content="Inserta el casete en el reproductor: glitch analógico y una "grabación" con tu dedicatoria. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cinta VHS Retro · Una dedicatoria para ti">
+  <meta property="og:description" content="Inserta el casete en el reproductor: glitch analógico y una "grabación" con tu dedicatoria.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint">Arrastra el casete hacia el reproductor ▼</p>
+<div class="tape" id="tape">
+  <div class="sticker"><b>«Nuestros momentos»</b><span>Vol. 1 · Edición de colección</span></div>
+  <div class="reels"><div class="reel"></div><div class="reel"></div></div>
+</div>
+<div class="vcr">
+  <span class="led" id="led"></span>
+  <div class="slot" id="slot"></div>
+  <span class="label">PLAY ▶</span>
+</div>
+<div class="tv" id="tv">
+  <span class="rec">● REC</span>
+  <span class="stamp">SP 0:00:00 · 22 · JUL · 1998</span>
+  <div class="content">
+    <h2>Grabación encontrada</h2>
+    <p>En esta cinta guardo lo que ningún formato puede borrar: tu risa, nuestros silencios cómodos y la certeza de que contigo, repetir escena siempre es un placer.</p>
+  </div>
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div class="glitch"></div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

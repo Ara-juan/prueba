@@ -1,0 +1,37 @@
+/* Proyector de Cine 8mm · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#e8e0c8}
+html,body{height:100%}
+body{margin:0;background:#120c08;color:var(--ink);font-family:'Courier New',monospace;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.screen-wrap{position:relative;width:min(760px,94vw);aspect-ratio:4/3;max-height:78vh;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.85),inset 0 0 80px rgba(255,240,200,.06)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;transition:opacity .12s;font-family:Georgia,serif;text-align:center;padding:30px}
+.slide.on{opacity:1}
+.slide .photo{font-size:clamp(3.4rem,10vw,6rem);filter:sepia(.8) contrast(1.05) brightness(.92)}
+.slide h2{font-weight:normal;font-size:clamp(1.2rem,3.6vw,2rem);color:#f2e3b8}
+.slide p{font-style:italic;opacity:.8;max-width:70%;line-height:1.6}
+/* Grano y viñeta de película vieja */
+.grain{position:absolute;inset:-40px;pointer-events:none;opacity:.5;background-image:url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E);animation:grain .35s steps(4) infinite;mix-blend-mode:overlay}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-14px,8px)}50%{transform:translate(10px,-12px)}75%{transform:translate(-6px,-8px)}100%{transform:translate(8px,10px)}}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 52%,rgba(10,6,2,.85) 100%)}
+/* Rayas verticales de rollo dañado */
+.scratch{position:absolute;top:0;bottom:0;width:1.5px;background:rgba(255,250,230,.16);pointer-events:none;animation:scr 2.2s linear infinite}
+.scratch.s2{animation-duration:3.1s;left:64%}
+@keyframes scr{0%{transform:translateX(0)}100%{transform:translateX(120vw)}}
+.scratch{left:22%}
+.controls{position:fixed;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:14px}
+.controls button{font-family:inherit;background:transparent;border:1px solid #8a744a;color:#e8d9a8;padding:10px 24px;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;cursor:pointer;transition:.2s}
+.controls button:hover{background:#8a744a;color:#120c08}
+.flicker{animation:flick .18s steps(2) infinite}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.96}}

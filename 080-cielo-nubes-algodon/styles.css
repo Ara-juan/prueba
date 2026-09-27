@@ -1,0 +1,22 @@
+/* Cielo de Nubes de Algodón · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#6a6a8a}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#cfe3f8,#ffe4ec 70%,#fff0f4);color:var(--ink);font-family:Georgia,serif;overflow:hidden;user-select:none}
+#sky{position:fixed;inset:0;display:block;cursor:pointer}
+.caption{position:fixed;top:26px;left:0;right:0;text-align:center;pointer-events:none}
+.caption h1{font-weight:normal;font-size:clamp(1.2rem,4vw,2rem);letter-spacing:.1em;margin:0}
+.caption p{font-style:italic;opacity:.6;font-size:.9rem;margin:8px 0 0}
+.hint{position:fixed;bottom:18px;left:0;right:0;text-align:center;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;opacity:.45;pointer-events:none}

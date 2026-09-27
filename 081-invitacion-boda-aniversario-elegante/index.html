@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Boda/Aniversario</title>
+  <meta name="description" content="Tarjeta elegante con cuenta regresiva en vivo, mapa decorado y RSVP con modal. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Invitación de Boda/Aniversario · Una dedicatoria para ti">
+  <meta property="og:description" content="Tarjeta elegante con cuenta regresiva en vivo, mapa decorado y RSVP con modal.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<article class="invite">
+  <div class="kicker">Con la bendición del corazón</div>
+  <h1>Valentina <span class="amp">&</span> Sebastián</h1>
+  <div class="date-line">Sábado 14 · Febrero · 2026 — 17:00 h</div>
+  <div class="divider">❦</div>
+  <div class="countdown" id="countdown">
+    <div class="cd-unit"><b id="cdD">—</b><span>Días</span></div>
+    <div class="cd-unit"><b id="cdH">—</b><span>Horas</span></div>
+    <div class="cd-unit"><b id="cdM">—</b><span>Min</span></div>
+    <div class="cd-unit"><b id="cdS">—</b><span>Seg</span></div>
+  </div>
+  <svg class="map" id="map" viewBox="0 0 300 160" aria-label="Mapa del evento">
+    <rect width="300" height="160" fill="#f2ecdc"/>
+    <path d="M0,120 C60,100 90,130 150,115 C210,100 250,125 300,110 L300,160 L0,160 Z" fill="#d8e2c8"/>
+    <path d="M20,40 C80,30 140,55 280,35" stroke="#e0d6ba" stroke-width="10" fill="none"/>
+    <path d="M60,10 L60,150" stroke="#e0d6ba" stroke-width="7"/>
+    <circle id="venuePin" cx="180" cy="75" r="9" fill="#b0955a" stroke="#fff" stroke-width="3" style="cursor:pointer"/>
+    <text x="180" y="58" text-anchor="middle" font-size="11" font-family="Georgia" fill="#7a8a6a">Jardín Los Robles</text>
+  </svg>
+  <button class="rsvp-btn" id="rsvpOpen">Confirmar asistencia</button>
+</article>
+<div class="modal" id="modal">
+  <form class="modal-card" id="rsvpForm">
+    <h2>RSVP · ¿Nos acompañas?</h2>
+    <div class="field"><label>Nombre completo</label><input required placeholder="Tu nombre"></div>
+    <div class="field"><label>¿Asistirás?</label>
+      <div class="radios">
+        <label style="text-transform:none;letter-spacing:0"><input type="radio" name="assist" value="yes" checked> ¡Claro que sí!</label>
+        <label style="text-transform:none;letter-spacing:0"><input type="radio" name="assist" value="no"> No podré 😢</label>
+      </div>
+    </div>
+    <div class="field"><label>Acompañantes</label>
+      <select><option>0</option><option>1</option><option>2</option><option>3</option></select>
+    </div>
+    <button type="submit">Enviar confirmación ♥</button>
+    <div class="thanks" id="thanksMsg">¡Gracias! Tu lugar ya está guardado<br>con un lazo dorado. ✨</div>
+  </form>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

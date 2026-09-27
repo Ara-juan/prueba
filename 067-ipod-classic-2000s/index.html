@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPod Classic 2000s</title>
+  <meta name="description" content="Rueda de clic funcional: navega la lista de "canciones" que en realidad son nuestros momentos. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iPod Classic 2000s · Una dedicatoria para ti">
+  <meta property="og:description" content="Rueda de clic funcional: navega la lista de "canciones" que en realidad son nuestros momentos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ipod">
+  <div class="screen-bezel">
+    <div class="screen">
+      <div class="sb"><span id="battery">♫ iPod ♥</span><span class="bat"></span></div>
+      <div class="title-row" id="titleRow">MOMENTOS ♥</div>
+      <div class="menu-area" id="menuArea"></div>
+      <div class="scrollbar"><div class="thumb" id="thumb"></div></div>
+      <div class="now-playing" id="npRow">▶ 00:00 ♪</div>
+    </div>
+  </div>
+  <div class="clickwheel" id="wheel">
+    <button class="wheel-btn wb-top" data-act="menu">MENU</button>
+    <button class="wheel-btn wb-left" data-act="prev">⏮</button>
+    <button class="wheel-btn wb-right" data-act="next">⏭</button>
+    <button class="wheel-btn wb-bottom" data-act="play">⏯</button>
+    <div class="wheel-center" data-act="select">SELECT</div>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

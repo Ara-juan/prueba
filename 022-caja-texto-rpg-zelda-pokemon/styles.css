@@ -1,0 +1,29 @@
+/* Caja de Texto RPG · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--box:#fffbe8;--ink:#2a2a1e}
+html,body{height:100%}
+body{margin:0;background:#1a2634 url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%231a2634'/%3E%3Crect x='20' y='30' width='14' height='14' fill='%23243548'/%3E%3Crect x='70' y='80' width='14' height='14' fill='%23243548'/%3E%3Crect x='95' y='25' width='14' height='14' fill='%23222f40'/%3E%3C/svg%3E);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:20px}
+.scene{font-size:3rem;filter:drop-shadow(0 8px 0 rgba(0,0,0,.4));animation:idle 2.4s ease-in-out infinite}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.dialog{width:min(680px,94vw);background:var(--box);border:4px solid #2a2a2a;border-radius:10px;box-shadow:0 0 0 4px #fffbe8,0 0 0 8px #2a2a2a,0 20px 40px rgba(0,0,0,.5);padding:22px 26px;position:relative;min-height:130px}
+.dialog .name{position:absolute;top:-16px;left:18px;background:var(--box);border:3px solid #2a2a2a;border-radius:8px;padding:2px 14px;font-weight:700;font-size:.85rem}
+.dialog .text{font-size:clamp(1rem,2.6vw,1.2rem);line-height:1.75;color:var(--ink);min-height:3.4em}
+.dialog .text::after{content:"▼";position:absolute;right:20px;bottom:12px;font-size:.8rem;animation:bounce 1s infinite;opacity:0}
+.dialog .text.done::after{opacity:1}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.choices{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.choice{text-align:left;background:#fff3c2;border:2px solid #c9b98a;border-radius:6px;padding:8px 14px;font-size:.95rem;transition:.15s;cursor:pointer}
+.choice:hover,.choice.sel{background:#ffe07a;border-color:#2a2a2a;transform:translateX(4px)}
+.hint{color:#9fb3c8;font-size:.8rem;letter-spacing:.12em}

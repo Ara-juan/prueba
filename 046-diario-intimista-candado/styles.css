@@ -1,0 +1,45 @@
+/* Diario Íntimo con Candado · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--leather:#5d3a28;--paper:#f5eeda;--ink:#4a3b28}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#2a1c12,#16100a 75%);font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+.diary{position:relative;width:min(480px,92vw);background:linear-gradient(160deg,var(--leather),#3a2418);border-radius:10px;padding:34px 30px;box-shadow:0 30px 70px rgba(0,0,0,.65),inset 0 2px 0 rgba(255,255,255,.12);text-align:center;color:#e8dcc0}
+.diary h1{font-weight:normal;letter-spacing:.24em;text-transform:uppercase;font-size:.95rem;margin:0 0 4px}
+.diary .sub{font-style:italic;font-size:.82rem;opacity:.7;margin-bottom:24px}
+.lock{width:86px;height:104px;margin:0 auto 20px;position:relative}
+.lock .body{position:absolute;bottom:0;left:8px;right:8px;height:64px;background:linear-gradient(160deg,#d4af37,#8a6d1f);border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.4)}
+.lock .body::after{content:"";position:absolute;left:50%;top:24px;transform:translateX(-50%);width:16px;height:22px;background:#241a08;border-radius:8px}
+.lock .shackle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:52px;height:52px;border:11px solid #b8952f;border-bottom:none;border-radius:28px 28px 0 0;transition:transform .6s,opacity .6s}
+.diary.unlocked .shackle{transform:translateX(-50%) translateY(-18px) rotate(-24deg);opacity:.9}
+.dots{display:flex;gap:12px;justify-content:center;margin-bottom:8px}
+.dots span{width:14px;height:14px;border-radius:50%;border:2px solid #b8952f;background:transparent;transition:.25s}
+.dots span.fill{background:#d4af37;box-shadow:0 0 10px rgba(212,175,55,.6)}
+.dots span.err{border-color:#c23c3c;background:#c23c3c}
+.pad{display:grid;grid-template-columns:repeat(3,64px);gap:10px;justify-content:center}
+.pad button{height:52px;background:rgba(255,255,255,.08);border:1px solid rgba(212,175,55,.4);color:#e8dcc0;font-family:'Courier New',monospace;font-size:1.1rem;border-radius:8px;cursor:pointer;transition:.15s}
+.pad button:hover{background:rgba(212,175,55,.2)}
+.pad button:active{transform:scale(.94)}
+.status{min-height:1.4em;font-size:.85rem;font-style:italic;margin-top:14px;opacity:.8}
+.status.err{color:#e88a8a}
+/* Páginas del diario desbloqueado */
+.pages{position:fixed;inset:0;background:rgba(15,10,6,.92);display:none;align-items:center;justify-content:center;z-index:10;padding:20px}
+.pages.show{display:flex}
+.book{width:min(620px,94vw);max-height:84vh;overflow-y:auto;background:linear-gradient(160deg,var(--paper),#e8ddc0);color:var(--ink);padding:36px 34px;box-shadow:0 40px 90px rgba(0,0,0,.8);animation:openBook .6s cubic-bezier(.2,1.2,.3,1)}
+@keyframes openBook{from{transform:translateY(50px) rotateX(20deg);opacity:0}}
+.book h2{font-weight:normal;font-style:italic;color:#6b4a2a;margin:0 0 16px}
+.entry{border-left:3px solid #b8952f;padding:6px 0 6px 16px;margin-bottom:20px}
+.entry .date{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
+.entry p{margin:0;line-height:1.9;font-size:.98rem}
+.close-diary{margin-top:6px;background:#5d3a28;color:#f5eeda;border:none;padding:10px 26px;font-family:inherit;font-size:.82rem;letter-spacing:.18em;cursor:pointer;border-radius:4px}

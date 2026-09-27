@@ -1,0 +1,26 @@
+/* Brote de Amor · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#fdf6ee;--ink:#4a3826;--green:#5d8a4a}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#fff9f0,#f3e8d7);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;display:flex;flex-direction:column}
+header{text-align:center;padding:20px 16px 6px}
+header h1{font-weight:300;letter-spacing:.18em;text-transform:uppercase;font-size:clamp(.95rem,3vw,1.3rem);margin:0 0 4px}
+header p{font-style:italic;opacity:.7;margin:0;font-size:.9rem}
+#stage{flex:1;display:block}
+.bar{display:flex;gap:12px;align-items:center;justify-content:center;padding:16px 16px 24px;flex-wrap:wrap}
+#loveBtn{background:var(--green);color:#fff;border-radius:999px;padding:13px 30px;font-size:1rem;letter-spacing:.06em;box-shadow:0 8px 20px rgba(93,138,74,.35);transition:transform .15s,box-shadow .15s}
+#loveBtn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(93,138,74,.45)}
+#loveBtn:active{transform:scale(.94)}
+.counter{font-size:.9rem;opacity:.75;min-width:130px}

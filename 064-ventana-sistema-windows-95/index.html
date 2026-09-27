@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 95 de Recuerdos</title>
+  <meta name="description" content="Escritorio retro: ventanas arrastrables, Bloc de notas con la carta y errores llenos de corazones. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Windows 95 de Recuerdos · Una dedicatoria para ti">
+  <meta property="og:description" content="Escritorio retro: ventanas arrastrables, Bloc de notas con la carta y errores llenos de corazones.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="desktop" id="desktop">
+  <div class="icon" style="left:24px;top:24px" data-win="letter"><div class="pic">📄</div>Carta.txt</div>
+  <div class="icon" style="left:24px;top:110px" data-win="love"><div class="pic">💖</div>Amor.exe</div>
+  <div class="icon" style="left:24px;top:196px" data-win="error"><div class="pic">⚠️</div>Error.Cariño</div>
+  <div class="icon" style="left:24px;top:282px" data-win="trash"><div class="icon pic">🗑️</div>Días Malos</div>
+</div>
+<div class="taskbar">
+  <button class="start" id="startBtn">🪟 Inicio</button>
+  <div class="tasks" id="tasks"></div>
+  <div class="clock" id="clock">00:00</div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

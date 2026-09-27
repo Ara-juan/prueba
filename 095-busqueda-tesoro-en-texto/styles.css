@@ -1,0 +1,38 @@
+/* Búsqueda del Tesoro en Texto · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#fdf8ec;--ink:#4a3a28;--gold:#d8a832}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(180deg,#f2ead4,#e6d8bc);color:var(--ink);font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;padding:34px 16px;gap:20px}
+.instructions{text-align:center;max-width:560px}
+.instructions h1{font-weight:normal;font-size:1.3rem;margin:0 0 6px}
+.instructions p{font-size:.9rem;opacity:.75;margin:0;line-height:1.7}
+.found-bar{display:flex;gap:6px;align-items:center;background:#fff;border-radius:999px;padding:10px 22px;box-shadow:0 8px 24px rgba(120,90,40,.15);min-height:1.4em;font-size:1.05rem;letter-spacing:.14em;font-weight:700;color:var(--gold)}
+.found-bar .pending{opacity:.3}
+.letter-carta{width:min(640px,94vw);background:var(--paper);border-radius:12px;box-shadow:0 24px 60px rgba(120,90,40,.2);padding:34px 30px;font-size:1.08rem;line-height:2.35;text-align:justify}
+.l{cursor:pointer;transition:.18s;border-radius:4px;padding:1px 2px}
+.l:hover{background:rgba(216,168,50,.2)}
+.l.secret{position:relative}
+.l.secret::after{content:"";position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:var(--gold);opacity:.7;animation:twinkle 1.6s infinite;pointer-events:none}
+@keyframes twinkle{0%,100%{opacity:.25;transform:translate(-50%,-50%) scale(.8)}50%{opacity:.95;transform:translate(-50%,-50%) scale(1.25)}}
+.l.found{background:var(--gold);color:#fff;opacity:1}
+.l.found::after{display:none}
+.l.wrong{background:#e86a6a;color:#fff}
+.victory{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(60,40,15,.55);backdrop-filter:blur(4px);z-index:40;padding:20px}
+.victory.show{display:flex}
+.victory .card{max-width:420px;background:var(--paper);border-radius:16px;padding:34px 30px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.4);animation:popUp .55s cubic-bezier(.2,1.4,.3,1)}
+@keyframes popUp{from{transform:scale(.7) translateY(30px);opacity:0}}
+.victory .big{font-size:3rem}
+.victory h2{margin:12px 0 8px;color:var(--gold);font-weight:normal}
+.victory p{line-height:1.9;margin:0;font-style:italic}

@@ -1,0 +1,54 @@
+/* Cinta VHS Retro · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#cfd8dc;--bg:#0a0d10}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Courier New',monospace;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;user-select:none}
+/* Reproductor VHS */
+.vcr{width:min(620px,92vw);background:linear-gradient(180deg,#2b2f33,#1b1e22);border:2px solid #3a3f45;border-radius:10px;padding:16px;box-shadow:0 24px 60px rgba(0,0,0,.7);display:flex;align-items:center;gap:16px}
+.slot{flex:1;height:26px;background:#0c0e10;border-radius:4px;position:relative;overflow:hidden;border:1px solid #000;box-shadow:inset 0 3px 8px rgba(0,0,0,.9)}
+.slot::after{content:"◄ VHS ►";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.4em;color:#454b52}
+.led{width:10px;height:10px;border-radius:50%;background:#4a1010;box-shadow:0 0 8px rgba(255,60,60,.4)}
+.led.on{background:#ff3b3b;box-shadow:0 0 12px #ff3b3b;animation:led 1.4s steps(2) infinite}
+@keyframes led{50%{opacity:.6}}
+.vcr .label{font-size:.68rem;letter-spacing:.3em;color:#8a939c}
+/* Casete */
+.tape{width:min(300px,70vw);background:linear-gradient(160deg,#3a3f45,#22262a);border:3px solid #14161a;border-radius:8px;padding:14px;cursor:grab;position:relative;box-shadow:0 14px 34px rgba(0,0,0,.6);transition:transform .2s}
+.tape:active{cursor:grabbing}
+.tape.inserted{animation:insert .9s ease forwards}
+@keyframes insert{40%{transform:translateY(-30px) scale(.9);opacity:1}100%{transform:translateY(180px) scale(.5);opacity:0}}
+.tape .sticker{background:#e8e4d8;color:#2a2a2a;border-radius:4px;padding:10px 12px;text-align:center;font-family:Georgia,serif}
+.tape .sticker b{display:block;font-size:.95rem;font-style:italic}
+.tape .sticker span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.reels{display:flex;justify-content:center;gap:38px;margin-top:12px}
+.reel{width:46px;height:46px;border-radius:50%;border:5px solid #14161a;background:repeating-conic-gradient(#5a5f66 0 14deg,#2a2e33 14deg 28deg);position:relative;transition:transform .3s linear}
+.tape.playing .reel{animation:spin 1.1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reel::after{content:"";position:absolute;inset:13px;border-radius:50%;background:#14161a}
+/* Pantalla de TV con glitch */
+.tv{width:min(680px,94vw);aspect-ratio:4/3;max-height:56vh;background:#000;border-radius:12px;position:relative;overflow:hidden;border:10px solid #1c1f23;box-shadow:0 30px 80px rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;transition:opacity .6s}
+.tv.on{opacity:1}
+.tv .content{font-family:Georgia,serif;color:#f5f2e8;position:relative;z-index:2}
+.tv .content h2{font-weight:normal;font-size:clamp(1.2rem,3.8vw,1.9rem);margin:0 0 12px;color:#9fe8ff;text-shadow:2px 0 rgba(255,60,120,.7),-2px 0 rgba(60,220,255,.7)}
+.tv .content p{line-height:1.8;opacity:.92;max-width:80%;margin:0 auto;font-style:italic}
+.tv .rec{position:absolute;top:16px;left:20px;color:#ff5a5a;font-size:.8rem;letter-spacing:.3em;z-index:2;animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.tv .stamp{position:absolute;bottom:14px;right:18px;color:#e8e8e8;font-size:.75rem;letter-spacing:.16em;z-index:2;opacity:.85}
+/* Capas de distorsión */
+.scanlines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px);pointer-events:none}
+.glitch{position:absolute;inset:0;z-index:4;background:linear-gradient(transparent 44%,rgba(255,255,255,.12) 45%,transparent 46%,transparent 70%,rgba(120,220,255,.14) 71%,transparent 72%);background-size:100% 100%;opacity:0;pointer-events:none}
+.tv.glitching .glitch{opacity:1;animation:glitchShift .18s steps(2) infinite}
+@keyframes glitchShift{0%{transform:translateY(0) skewX(0)}25%{transform:translateY(-6px) skewX(2deg)}50%{transform:translateY(4px) skewX(-2deg)}75%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+.noise{position:absolute;inset:0;z-index:3;opacity:.08;background-image:url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E);pointer-events:none;mix-blend-mode:screen}
+.hint{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.5;text-align:center}

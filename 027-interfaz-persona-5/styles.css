@@ -1,0 +1,30 @@
+/* Interfaz Persona 5 · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--red:#e60012;--black:#0f0f0f;--white:#fdfdfd}
+html,body{height:100%}
+body{margin:0;background:var(--black);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;color:var(--white);user-select:none}
+.bg{position:fixed;inset:0;background:repeating-linear-gradient(45deg,transparent 0 26px,#e6001211 26px 30px);animation:slide 14s linear infinite;z-index:0}
+@keyframes slide{to{background-position:180px 0}}
+.menu{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;gap:14px;padding-left:min(10vw,90px);z-index:2}
+.item{position:relative;width:min(340px,80vw);background:var(--red);color:var(--white);padding:16px 26px;font-weight:800;font-size:clamp(1.1rem,3.4vw,1.7rem);letter-spacing:.05em;text-transform:uppercase;transform:skewX(-12deg) translateX(-30px);opacity:0;transition:transform .35s cubic-bezier(.2,1.3,.3,1),opacity .35s,background .2s;cursor:pointer;border:3px solid var(--white);clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,0 100%)}
+.item.in{opacity:1;transform:skewX(-12deg) translateX(0)}
+.item span{display:inline-block;transform:skewX(12deg)}
+.item:hover,.item.sel{background:var(--white);color:var(--red);transform:skewX(-12deg) translateX(16px) scale(1.04)}
+.item small{position:absolute;right:14px;top:50%;transform:translateY(-50%) skewX(12deg);font-size:.7rem;opacity:.75;font-weight:600}
+.detail{position:fixed;right:min(6vw,60px);bottom:8vh;width:min(380px,84vw);background:var(--white);color:var(--black);transform:skewX(-8deg) rotate(-1.5deg);padding:22px 26px;border:4px solid var(--red);box-shadow:14px 14px 0 var(--red);z-index:2}
+.detail h2{margin:0 0 8px;font-size:1.2rem;text-transform:uppercase;letter-spacing:.06em;transform:skewX(8deg)}
+.detail p{margin:0;font-size:.95rem;line-height:1.6;transform:skewX(8deg)}
+.logo{position:fixed;top:4vh;left:min(10vw,90px);font-weight:900;font-size:clamp(1.6rem,5vw,2.6rem);letter-spacing:-.02em;transform:rotate(-3deg) skewX(-8deg);z-index:2;text-shadow:4px 4px 0 var(--red)}
+.logo em{color:var(--red);font-style:normal}

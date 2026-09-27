@@ -1,0 +1,39 @@
+/* Página de Novela Iluminada · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#f0e6cc;--ink:#3a2e1c;--red:#8a2a1e;--gold:#a07828}
+html,body{min-height:100%}
+body{margin:0;background:#1c1710;font-family:Georgia,serif;color:var(--ink);display:flex;align-items:center;justify-content:center;padding:34px 16px}
+.folio{width:min(760px,96vw);background:linear-gradient(160deg,#f4ecd4,#e8dcba);border:1px solid #c9b888;box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 0 80px rgba(160,120,40,.12);padding:clamp(28px,5vw,54px);position:relative}
+.folio::before{content:"";position:absolute;inset:14px;border:2px solid var(--gold);pointer-events:none}
+.folio::after{content:"";position:absolute;inset:20px;border:1px solid rgba(138,42,30,.4);pointer-events:none}
+/* Textura de mancha antigua */
+.stain{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(140,100,40,.12),transparent 70%);pointer-events:none}
+.chapter-head{text-align:center;margin-bottom:24px}
+.chapter-head .rubric{color:var(--red);font-size:.8rem;letter-spacing:.4em;text-transform:uppercase}
+.chapter-head h1{font-weight:normal;font-size:clamp(1.4rem,4.5vw,2.2rem);margin:8px 0 0;color:#5d3a20}
+.ornament{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--gold);margin:14px 0 22px}
+.ornament::before,.ornament::after{content:"";height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--gold));display:block}
+.ornament::after{background:linear-gradient(90deg,var(--gold),transparent)}
+/* Letra capital iluminada */
+.cap{float:left;font-size:4.6rem;line-height:.78;padding:8px 14px 0 0;color:var(--red);font-family:Georgia,serif;position:relative}
+.cap::after{content:"";position:absolute;inset:2px -4px -6px 2px;border:2px solid var(--gold);border-radius:4px;z-index:-1;background:radial-gradient(circle at 30% 30%,rgba(212,175,55,.25),transparent 70%)}
+.text{font-size:clamp(.98rem,2.5vw,1.12rem);line-height:2.1;text-align:justify}
+.text p{margin:0 0 16px}
+.text i{color:#6a4a28}
+/* Ilustraciones laterales miniatura */
+.margins{display:flex;justify-content:space-between;margin-top:18px}
+.mini{width:92px;text-align:center;font-size:2rem;padding:14px 6px;border:1.5px solid var(--gold);background:radial-gradient(circle at 50% 20%,rgba(212,175,55,.18),transparent);color:var(--red)}
+.mini small{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-top:8px;color:var(--ink)}
+@media (max-width:520px){.margins{gap:8px}.mini{width:30%}}

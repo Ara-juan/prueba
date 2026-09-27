@@ -1,0 +1,36 @@
+/* Tarot de la Dedicatoria · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--bg:#100a1a;--gold:#c9a84c;--ink:#e0d4c0}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 20%,#1e1430,var(--bg) 70%);color:var(--ink);font-family:Georgia,serif;overflow-x:hidden;display:flex;flex-direction:column;align-items:center;padding:30px 16px;gap:22px;user-select:none}
+header{text-align:center}
+header h1{font-weight:normal;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(1rem,3.4vw,1.5rem);margin:0 0 6px;color:#e8d8b0}
+header p{font-style:italic;opacity:.65;font-size:.9rem;margin:0}
+.spread{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;perspective:1200px}
+.card{width:150px;aspect-ratio:5/8;position:relative;cursor:pointer;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,0,.2,1),box-shadow .4s}
+.card:hover{transform:translateY(-10px)}
+.card.flipped{transform:rotateY(180deg)}
+.card.flipped:hover{transform:rotateY(180deg) translateY(-6px)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.55)}
+.face.back{background:repeating-linear-gradient(45deg,#1e1430 0 10px,#241a3a 10px 20px);border:2px solid var(--gold)}
+.face.back::after{content:"✦";font-size:2.6rem;color:var(--gold);opacity:.85;text-shadow:0 0 16px rgba(201,168,76,.7)}
+.face.front{background:linear-gradient(160deg,#f0e2c0,#dcc494);color:#3a2a14;transform:rotateY(180deg);border:2px solid var(--gold)}
+.face .glyph{font-size:2.6rem;margin-bottom:8px}
+.face h3{margin:0;font-size:.95rem;font-weight:700;letter-spacing:.06em}
+.face .roman{font-size:.7rem;letter-spacing:.3em;opacity:.6;margin-bottom:6px}
+.face p{font-size:.78rem;line-height:1.6;margin:8px 0 0;font-style:italic}
+.reading{max-width:min(600px,94vw);text-align:center;font-style:italic;line-height:1.9;min-height:3em;opacity:0;transition:opacity .8s;font-size:1rem}
+.reading.show{opacity:1}
+.hint{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.5}

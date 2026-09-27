@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caja de Regalo 3D</title>
+  <meta name="description" content="Regalo envuelto en CSS 3D: desliza la cinta con el ratón para desatarlo y abrirlo. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Caja de Regalo 3D · Una dedicatoria para ti">
+  <meta property="og:description" content="Regalo envuelto en CSS 3D: desliza la cinta con el ratón para desatarlo y abrirlo.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint" id="hint">Arrastra la cinta dorada hacia un lado 🎀</p>
+<div class="stage">
+  <div class="gift-content" id="giftContent">
+    <div class="big">🌟</div>
+    <p>Tu regalo no cabía en la caja: eres tú, tal cual, exactamente como eres. ¡Felicidades!</p>
+  </div>
+  <div class="box">
+    <div class="face f"></div><div class="face b"></div><div class="face l"></div><div class="face r"></div>
+  </div>
+  <div class="lid" id="lid">
+    <div class="lf"></div><div class="lf"></div><div class="lf"></div><div class="lf"></div>
+    <div class="lt"></div>
+  </div>
+  <div class="bow"><i></i><i></i></div>
+  <div class="pull" id="pull"><div class="ribbon-end">🎀</div><span class="arrow">→</span></div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

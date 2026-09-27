@@ -1,0 +1,37 @@
+/* Cámara Instantánea Polaroid · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#3a3a3a}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(160deg,#e8e2d4,#cfc8b4);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px;user-select:none}
+.camera{position:relative;width:280px;height:190px;background:linear-gradient(160deg,#3a3e45,#22252b);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.4),inset 0 2px 0 rgba(255,255,255,.14);cursor:pointer;transition:transform .15s}
+.camera:hover{transform:translateY(-3px)}
+.camera:active{transform:scale(.97)}
+.lens{position:absolute;left:34px;top:38px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#5a6270,#1a1d24 65%);box-shadow:inset 0 0 0 8px #14161c,inset 0 0 0 11px #3a3e48,0 6px 14px rgba(0,0,0,.4)}
+.lens::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#7ab0d8,#1a2a3a 70%)}
+.flash{position:absolute;right:30px;top:24px;width:44px;height:26px;border-radius:6px;background:linear-gradient(180deg,#e8e2d0,#b8b2a0);box-shadow:inset 0 0 6px rgba(0,0,0,.3)}
+.flash.fired{animation:flashFire .5s ease}
+@keyframes flashFire{0%{background:#fff;box-shadow:0 0 60px 30px rgba(255,255,255,.9)}100%{background:linear-gradient(180deg,#e8e2d0,#b8b2a0);box-shadow:inset 0 0 6px rgba(0,0,0,.3)}}
+.shutter{position:absolute;right:34px;bottom:26px;width:64px;height:24px;border-radius:12px;background:#c94a4a;box-shadow:0 4px 0 #7a2a2a;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.66rem;letter-spacing:.2em;font-family:Arial,sans-serif}
+.slot{position:absolute;left:26px;right:26px;bottom:10px;height:10px;background:#0c0d10;border-radius:3px;box-shadow:inset 0 3px 6px #000}
+.rainbow{position:absolute;right:88px;top:56px;width:8px;height:70px;background:linear-gradient(180deg,#e84a4a 0 16%,#e8a44a 16% 33%,#e8d84a 33% 50%,#4ac96a 50% 66%,#4a8ae8 66% 83%,#8a4ae8 83%);opacity:.85;border-radius:2px}
+/* Fotos revelándose */
+.photos{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;max-width:400px}
+.polaroid{width:180px;background:#fdfcf6;padding:10px 10px 40px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:rotate(var(--rot,-3deg));position:relative;animation:pop .6s cubic-bezier(.2,1.4,.3,1)}
+@keyframes pop{from{transform:translateY(60px) rotate(var(--rot)) scale(.8);opacity:0}}
+.polaroid .img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3.4rem;filter:brightness(.2) sepia(1) blur(4px);transition:filter 3.2s ease}
+.polaroid.revealed .img{filter:none}
+.polaroid figcaption{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Segoe Script',cursive;font-size:.85rem;color:#4a4438;opacity:0;transition:opacity 1s 2.5s}
+.polaroid.revealed figcaption{opacity:1}
+.hint{text-align:center;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55;position:fixed;bottom:16px;left:0;right:0}

@@ -1,0 +1,24 @@
+/* Cuervo y Carta Nocturna · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--ink:#b8b4c8;--moon:#d8d4e8}
+html,body{height:100%}
+body{margin:0;background:#0a0a12;font-family:Georgia,serif;color:var(--ink);overflow:hidden;user-select:none}
+#scene{position:fixed;inset:0;display:block}
+.letter{position:fixed;left:50%;top:56%;transform:translate(-50%,-50%) rotate(-2deg);width:min(420px,86vw);background:linear-gradient(160deg,#2a2432,#1c1824);border:1px solid #4a3a5a;color:#cfc4e0;padding:26px 28px;box-shadow:0 30px 70px rgba(0,0,0,.7);opacity:0;transition:opacity 1s,transform 1s;z-index:3;text-align:center}
+.letter.show{opacity:1;transform:translate(-50%,-54%) rotate(-2deg)}
+.letter h2{font-weight:normal;font-style:italic;font-size:1.2rem;margin:0 0 12px;color:#c9a8d8}
+.letter p{font-size:.92rem;line-height:1.9;margin:0;font-style:italic}
+.letter .seal{display:inline-flex;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#5a2a6a,#2a1035);box-shadow:0 6px 16px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.15);align-items:center;justify-content:center;font-size:1.3rem;color:#c9a8d8;margin-top:16px}
+.hint{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.55;z-index:3;pointer-events:none}

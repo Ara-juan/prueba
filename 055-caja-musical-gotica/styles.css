@@ -1,0 +1,29 @@
+/* Caja Musical Gótica · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--wood:#3a2818;--brass:#c9a84c;--ink:#e0d0b0}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 40%,#241a10,#120c06 75%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;user-select:none}
+.box{position:relative;width:min(360px,80vw);aspect-ratio:4/3;background:linear-gradient(160deg,#4a3220,#241708);border-radius:10px;box-shadow:0 30px 70px rgba(0,0,0,.7),inset 0 2px 0 rgba(255,220,160,.15);display:flex;align-items:center;justify-content:center}
+/* Grabado ornamental */
+.ornament{font-size:2.6rem;color:var(--brass);opacity:.6;text-shadow:0 0 0 transparent;transition:text-shadow .4s,opacity .4s}
+.ornament.singing{text-shadow:0 0 24px rgba(201,168,76,.9);opacity:1}
+.lid-line{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--brass),transparent);opacity:.5}
+.crank{position:absolute;right:-46px;top:50%;transform:translateY(-50%);width:92px;height:92px;cursor:grab;touch-action:none}
+.crank:active{cursor:grabbing}
+.crank .arm{position:absolute;left:50%;top:50%;width:56px;height:12px;background:linear-gradient(180deg,#e0c070,#8a6a2a);border-radius:6px;transform-origin:left center;box-shadow:0 3px 8px rgba(0,0,0,.5)}
+.crank .knob{position:absolute;right:0;top:50%;transform:translate(50%,-50%);width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f0d98a,#8a6a2a);box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.crank .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#5d4a2a;box-shadow:inset 0 0 6px rgba(0,0,0,.8)}
+.notes{position:fixed;font-size:1.4rem;pointer-events:none;z-index:10;transition:transform 1.6s ease-out,opacity 1.6s;opacity:.9}
+.hint{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.55;text-align:center}

@@ -1,0 +1,38 @@
+/* Libro 3D Hojeable · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#f7f1e3;--paper2:#efe6d0;--ink:#4a3b28;--cover:#6b3a2a}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 40%,#2a221a,#141009 75%);font-family:Georgia,serif;color:var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+.book{position:relative;width:min(700px,92vw);height:min(460px,66vh);transform-style:preserve-3d;perspective:2000px}
+.spine{position:absolute;left:50%;top:-10px;bottom:-10px;width:24px;transform:translateX(-50%);background:linear-gradient(90deg,#5a301f,#3a1d12);z-index:1;border-radius:4px}
+.page{position:absolute;left:50%;top:0;bottom:0;width:50%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.4,0,.2,1);z-index:2}
+.page .front,.page .back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(105deg,var(--paper) 0%,var(--paper2) 90%);padding:clamp(16px,3vw,30px);box-shadow:inset 8px 0 18px -10px rgba(90,60,30,.35);overflow:hidden}
+.page .back{transform:rotateY(180deg);background:linear-gradient(255deg,var(--paper) 0%,var(--paper2) 90%);box-shadow:inset -8px 0 18px -10px rgba(90,60,30,.35)}
+.page.turned{transform:rotateY(-180deg)}
+.page .front{border-radius:0 6px 6px 0}
+.page .back{border-radius:6px 0 0 6px}
+.num{position:absolute;bottom:10px;font-size:.72rem;opacity:.55}
+.front .num{right:16px}.back .num{left:16px}
+.hand{font-family:'Segoe Script','Brush Script MT',cursive;font-size:clamp(.95rem,2.4vw,1.12rem);line-height:2.05}
+.hand h2{font-family:'Segoe Script',cursive;font-weight:normal;font-size:1.3rem;margin-bottom:12px;color:#7a4a2a}
+.illu{font-size:2.4rem;text-align:center;margin:14px 0;filter:sepia(.5)}
+.dropcap{float:left;font-size:3.4rem;line-height:.85;padding:6px 10px 0 0;color:#8a5a3a;font-family:Georgia,serif}
+.cover-page{background:linear-gradient(135deg,#7a4030,#4a2418);color:#f5e8d0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:0 8px 8px 0;height:100%}
+.cover-page b{font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase}
+.cover-page span{font-style:italic;opacity:.8}
+.nav{position:fixed;bottom:24px;left:0;right:0;display:flex;justify-content:center;gap:16px;z-index:10}
+.nav button{background:rgba(247,241,227,.1);border:1px solid rgba(247,241,227,.35);color:#f5e8d0;padding:10px 26px;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;cursor:pointer;transition:.2s;border-radius:4px}
+.nav button:hover{background:rgba(247,241,227,.25)}
+.hint{position:fixed;bottom:68px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;opacity:.45;color:#f5e8d0;z-index:10}

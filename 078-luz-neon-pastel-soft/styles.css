@@ -1,0 +1,32 @@
+/* Letrero de Neón Pastel · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--pink:#ff9ecb;--mint:#a8f0d4;--lav:#cabcf5;--bg:#181422}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#241d33,var(--bg) 70%);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;user-select:none}
+.sign{position:relative;text-align:center;padding:40px 50px;border:3px solid rgba(255,158,203,.5);border-radius:22px;box-shadow:0 0 24px rgba(255,158,203,.25),inset 0 0 24px rgba(255,158,203,.08)}
+.neon{font-size:clamp(1.8rem,7vw,3.6rem);letter-spacing:.08em;color:#fff;transition:text-shadow .3s,color .3s;min-height:1.4em;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 .35em}
+.neon .ch{display:inline-block;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .5s cubic-bezier(.2,1.5,.3,1)}
+.neon .ch.on{opacity:1;transform:none}
+.neon.c1 .ch{color:#ffe8f2;text-shadow:0 0 8px #fff,0 0 18px var(--pink),0 0 42px var(--pink),0 0 80px var(--pink)}
+.neon.c2 .ch{color:#eafff5;text-shadow:0 0 8px #fff,0 0 18px var(--mint),0 0 42px var(--mint),0 0 80px var(--mint)}
+.neon.c3 .ch{color:#f2ecff;text-shadow:0 0 8px #fff,0 0 18px var(--lav),0 0 42px var(--lav),0 0 80px var(--lav)}
+.flicker-soft{animation:flick 4.5s ease-in-out infinite}
+@keyframes flick{0%,100%{opacity:1}6%{opacity:.85}8%{opacity:1}52%{opacity:1}54%{opacity:.9}56%{opacity:1}}
+.sub-neon{font-size:.85rem;letter-spacing:.5em;text-transform:uppercase;color:var(--mint);text-shadow:0 0 12px var(--mint);opacity:.85}
+.controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.controls input{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,158,203,.4);color:#fff;border-radius:999px;padding:11px 20px;outline:none;text-align:center;width:min(220px,60vw);font-family:Georgia,serif;font-style:italic}
+.controls input:focus{border-color:var(--mint);box-shadow:0 0 14px rgba(168,240,212,.3)}
+.controls button{background:linear-gradient(120deg,var(--pink),var(--lav));border:none;border-radius:999px;padding:11px 26px;color:#241d33;font-weight:700;cursor:pointer;transition:transform .15s}
+.controls button:hover{transform:translateY(-2px)}

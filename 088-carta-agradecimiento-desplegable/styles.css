@@ -1,0 +1,42 @@
+/* Carta Agradecimiento Tríptico · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#f7f1e2;--ink:#4a3c28;--accent:#a8663a}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#e8dfc8,#d0c0a0 75%);color:var(--ink);font-family:Georgia,serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;user-select:none;perspective:1600px}
+.triptych{display:flex;width:min(640px,94vw);height:min(400px,60vh);transform-style:preserve-3d}
+.panel{flex:1;background:linear-gradient(165deg,var(--paper),#ece2ca);position:relative;overflow:hidden;transition:transform 1s cubic-bezier(.4,0,.2,1),opacity 1s}
+.panel.left{border-radius:10px 0 0 10px;border-right:1px solid rgba(120,90,40,.25);transform-origin:left center}
+.panel.right{border-radius:0 10px 10px 0;border-left:1px solid rgba(120,90,40,.25);transform-origin:right center}
+.panel.center{border-left:1px solid rgba(120,90,40,.25);border-right:1px solid rgba(120,90,40,.25)}
+.triptych.open .panel.left{transform:rotateY(150deg);opacity:.94}
+.triptych.open .panel.right{transform:rotateY(-150deg);opacity:.94}
+/* Contenido de las solapas */
+.panel .inner{position:absolute;inset:0;padding:26px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
+.panel .inner .big{font-size:2.6rem}
+.panel h2{margin:0;font-weight:normal;font-size:1.15rem;color:var(--accent)}
+.panel p{margin:0;font-size:.86rem;line-height:1.9;font-style:italic}
+/* Panel central (la carta) */
+.panel.center .inner{justify-content:flex-start;padding-top:34px;text-align:left;align-items:stretch}
+.panel.center h1{margin:0 0 10px;font-weight:normal;font-size:1.4rem;color:var(--accent);text-align:center}
+.panel.center p{margin:0 0 10px;font-size:.9rem;line-height:1.95;text-align:justify}
+.panel.center .sig{text-align:right;font-family:'Segoe Script',cursive;font-size:1.15rem;margin-top:auto}
+/* Palabra FRONTAL en las solapas cerradas */
+.panel .cover-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(165deg,#f0e6cc,#e4d6b2);transition:opacity .5s;z-index:2;backface-visibility:hidden}
+.triptych.open .cover-label{opacity:0;pointer-events:none}
+.cover-label .orn{font-size:1.6rem;color:var(--accent)}
+.cover-label span{letter-spacing:.4em;text-transform:uppercase;font-size:.72rem;color:#8a6a44}
+.btn-open{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 34px;font-family:Georgia,serif;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 26px rgba(168,102,58,.4);transition:transform .15s}
+.btn-open:hover{transform:translateY(-2px)}
+.hint{font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;opacity:.5;color:#6a5a3a}

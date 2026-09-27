@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantalla de Carga de Videojuego</title>
+  <meta name="description" content="Barra de progreso con "tips de amor" mientras carga… una carta interactiva al 100%. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pantalla de Carga de Videojuego · Una dedicatoria para ti">
+  <meta property="og:description" content="Barra de progreso con "tips de amor" mientras carga… una carta interactiva al 100%.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="loader">
+  <h1>Cargando sentimientos</h1>
+  <div class="pct" id="pct">0%</div>
+  <div class="bar"><div class="fill" id="fill"></div><div class="shine"></div></div>
+  <p class="tip" id="tip"><b>Tip de amor #1:</b> la paciencia también es cariño…</p>
+</div>
+<div class="letter" id="letter">
+  <div class="paper">
+    <h2>¡Carga completada! 💌</h2>
+    <p>Gracias por esperar. Ahora que estás aquí, quiero que sepas que eres mi mensaje favorito del universo entero.</p>
+    <p>Haz clic en el papel para ver chispas de cariño ✨</p>
+    <button id="closeLetter">Volver a cargar (por si acaso)</button>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

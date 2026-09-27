@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Compatibilidad (Siempre 100%)</title>
+  <meta name="description" content="Cuestionario tipo revista con animación de medición y resultado garantizado: 100% · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Test de Compatibilidad (Siempre 100%) · Una dedicatoria para ti">
+  <meta property="og:description" content="Cuestionario tipo revista con animación de medición y resultado garantizado: 100%">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="mag" id="mag">
+  <h1>💗 Test de Compatibilidad</h1>
+  <div class="sub">Análisis científico-rómantico de precisión absoluta (confía)</div>
+  <div id="quiz"></div>
+  <div class="result" id="result">
+    <div class="meter">
+      <svg viewBox="0 0 120 70">
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#e86a9a"/><stop offset="1" stop-color="#b89ae8"/>
+          </linearGradient>
+        </defs>
+        <path class="arc-bg" d="M15,60 A45,45 0 0,1 105,60"/>
+        <path class="arc" id="arc" d="M15,60 A45,45 0 0,1 105,60"/>
+      </svg>
+      <div class="pct" id="pct">0%</div>
+    </div>
+    <p class="verdict" id="verdict"></p>
+    <button class="again" id="again">Repetir test (dará lo mismo) 🔁</button>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

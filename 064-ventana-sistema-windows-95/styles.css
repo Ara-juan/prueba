@@ -1,0 +1,43 @@
+/* Windows 95 de Recuerdos · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--teal:#008080;--gray:#c0c0c0;--navy:#000080}
+html,body{height:100%}
+body{margin:0;background:var(--teal);font-family:'MS Sans Serif',Tahoma,sans-serif;font-size:12px;overflow:hidden;user-select:none}
+.desktop{position:absolute;inset:0 0 34px 0;padding:16px}
+.icon{width:76px;text-align:center;color:#fff;cursor:pointer;padding:6px 2px;position:absolute}
+.icon .pic{font-size:2rem;filter:drop-shadow(1px 1px 0 #000)}
+.icon:hover .pic{filter:drop-shadow(1px 1px 0 #000) brightness(1.2)}
+.icon.open{background:rgba(0,0,128,.45)}
+/* Barra de tareas */
+.taskbar{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--gray);border-top:1px solid #fff;display:flex;align-items:center;gap:6px;padding:3px 4px;z-index:100}
+.start{display:flex;align-items:center;gap:5px;font-weight:700;padding:4px 10px;background:var(--gray);border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #404040;border-bottom:2px solid #404040;cursor:pointer}
+.start:hover{background:#d4d0c8}
+.tasks{flex:1;display:flex;gap:4px;overflow:hidden}
+.task{padding:4px 12px;background:var(--gray);border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #404040;border-bottom:2px solid #404040;cursor:pointer;white-space:nowrap}
+.task.active{background:#d4d0c8;font-weight:700;border-style:inset}
+.clock{padding:4px 10px;border-top:2px solid #404040;border-left:2px solid #404040;border-right:2px solid #fff;border-bottom:2px solid #fff;background:#d4d0c8}
+/* Ventanas */
+.win{position:absolute;width:340px;background:var(--gray);border-top:3px solid #fff;border-left:3px solid #fff;border-right:3px solid #404040;border-bottom:3px solid #404040;box-shadow:4px 4px 0 rgba(0,0,0,.35);z-index:10;display:flex;flex-direction:column;min-width:240px}
+.win.min{display:none}
+.titlebar{background:linear-gradient(90deg,var(--navy),#1084d0);color:#fff;font-weight:700;padding:4px 6px;display:flex;align-items:center;justify-content:space-between;cursor:move}
+.titlebar .btns{display:flex;gap:2px}
+.titlebar button{width:18px;height:16px;background:var(--gray);border:none;border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #404040;border-bottom:2px solid #404040;font-size:9px;font-family:inherit;line-height:1;cursor:pointer}
+.win-body{padding:10px;flex:1;overflow:auto;line-height:1.7;background:var(--gray)}
+.win-body.notepad{background:#fff;color:#000;font-family:'Courier New',monospace;padding:12px;white-space:pre-wrap}
+.heart-error{display:flex;gap:12px;align-items:flex-start}
+.heart-error .big{font-size:2.2rem}
+.err-actions{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.err-actions button{min-width:80px;padding:5px 12px;background:var(--gray);border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #404040;border-bottom:2px solid #404040;font-family:inherit;cursor:pointer}
+.err-actions button:active{border-style:inset}

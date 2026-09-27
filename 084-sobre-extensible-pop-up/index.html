@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Pop-Up 3D</title>
+  <meta name="description" content="Al abrir el sobre, se despliega una estructura 3D en CSS (¡un pastel de felicitación!). · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sobre Pop-Up 3D · Una dedicatoria para ti">
+  <meta property="og:description" content="Al abrir el sobre, se despliega una estructura 3D en CSS (¡un pastel de felicitación!).">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint" id="hint">Haz clic en el sobre para abrirlo 💌</p>
+<div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir el sobre">
+  <div class="env-back"></div>
+  <div class="flap"></div>
+  <div class="env-front"></div>
+  <div class="seal">♥</div>
+</div>
+<div class="popup" id="popup">
+  <div class="banner">🎉 ¡Feliz día, Persona Increíble! 🎉</div>
+  <div class="cake-stage">
+    <div class="cake">
+      <div class="layer layer-1"><div class="top"></div></div>
+      <div class="layer layer-2"><div class="top"></div></div>
+      <div class="layer layer-3"><div class="top"></div></div>
+      <div class="candles"><div class="candle"></div><div class="candle"></div><div class="candle"></div><div class="candle"></div></div>
+    </div>
+  </div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

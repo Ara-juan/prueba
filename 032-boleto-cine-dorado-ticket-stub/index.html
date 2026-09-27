@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boleto de Cine Dorado</title>
+  <meta name="description" content="Entrada dorada con talón punteado: haz clic para rasgarla y pasar a la dedicatoria. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Boleto de Cine Dorado · Una dedicatoria para ti">
+  <meta property="og:description" content="Entrada dorada con talón punteado: haz clic para rasgarla y pasar a la dedicatoria.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint" id="hint">Haz clic en la entrada para rasgarla 🎟️</p>
+<div class="stage">
+  <div class="ticket" id="ticket" role="button" tabindex="0" aria-label="Rasgar la entrada">
+    <div class="main">
+      <div class="brand">Cine · Corazón Dorado</div>
+      <h1>UNA NOCHE CONTIGO</h1>
+      <div class="admit">Admite a la persona más especial del universo (tú)</div>
+      <div class="meta">
+        <div><b>Sala</b>Mis Recuerdos</div>
+        <div><b>Fila</b>La primera</div>
+        <div><b>Asiento</b>Junto a mí</div>
+        <div><b>Hora</b>Siempre</div>
+      </div>
+    </div>
+    <div class="stub">
+      <span class="icon">⭐</span>
+      <span class="num">Nº 143</span>
+      <span class="brand">SOLO TÚ</span>
+    </div>
+  </div>
+</div>
+<div class="revealed" id="revealed">
+  <b>Acceso concedido</b>
+  Te entrego este boleto para toda la vida: vale por todas las películas que quieras ver, todas las palomitas que quieras robarme y todas las escenas que aún nos faltan por vivir.
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

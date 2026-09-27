@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasca y Gana</title>
+  <meta name="description" content="Capa plateada en Canvas que se raspa con el cursor como billete de lotería: ¿qué sorpresa hay? · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rasca y Gana · Una dedicatoria para ti">
+  <meta property="og:description" content="Capa plateada en Canvas que se raspa con el cursor como billete de lotería: ¿qué sorpresa hay?">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="hint" id="hint">Raspa la zona plateada con el cursor o el dedo 🪙</p>
+<div class="ticket">
+  <h1>✦ Boleto de Fortuna ✦</h1>
+  <div class="sub">Lotería del Corazón · Sorteo permanente · Premio garantizado</div>
+  <div class="scratch-area" id="area">
+    <div class="prize-emoji" id="pEmoji">💖</div>
+    <div class="prize-text" id="pTitle">GRAN PREMIO: ERES INCREÍBLE</div>
+    <div class="prize-sub" id="pSub">Probabilidad de acierto: 100% · Siempre</div>
+    <span class="percent" id="percent">0%</span>
+    <canvas class="scratch" id="scratch"></canvas>
+  </div>
+  <div class="foot">Nº de serie: TU-ERES-10 · Válido por siempre</div>
+</div>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

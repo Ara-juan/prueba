@@ -1,0 +1,36 @@
+/* Death Note (Life Note Edition) · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--black:#0a0a0a;--paper:#e8e2d4;--ink:#1a1a1a;--red:#8a0f0f}
+html,body{min-height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 0,#1c1c22,#000 75%);font-family:Georgia,serif;color:#ccc;display:flex;flex-direction:column;align-items:center;padding:30px 16px;gap:22px}
+.book{width:min(560px,94vw);background:linear-gradient(135deg,#151515,#000);border:1px solid #333;border-radius:4px 14px 14px 4px;padding:30px 26px;box-shadow:0 30px 70px rgba(0,0,0,.8),inset 0 0 40px rgba(60,60,70,.12);position:relative}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(90deg,#000,#2a2a2a);border-radius:4px 0 0 4px}
+.book h1{font-family:'Times New Roman',serif;font-weight:normal;letter-spacing:.35em;text-transform:uppercase;font-size:1.3rem;text-align:center;color:#ddd;margin:0 0 6px}
+.book .sub{text-align:center;font-style:italic;font-size:.8rem;color:#888;margin-bottom:22px}
+label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#999;display:block;margin-bottom:8px}
+.row{display:flex;gap:8px}
+input{flex:1;background:#0d0d0d;border:1px solid #444;color:#e8e2d4;font-family:'Times New Roman',serif;font-size:1.15rem;padding:11px 14px;outline:none}
+input:focus{border-color:var(--red)}
+button.write{background:var(--red);color:#f5e8e8;border:none;padding:11px 22px;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.2s}
+button.write:hover{background:#b31515}
+.cert{width:min(560px,94vw);background:var(--paper);color:var(--ink);padding:34px 30px;box-shadow:0 24px 60px rgba(0,0,0,.7);border:1px solid #c9c0a8;position:relative;opacity:0;transform:translateY(30px) rotate(-.5deg);transition:opacity .8s,transform .8s;display:none}
+.cert.show{opacity:1;transform:none;display:block;animation:drop .7s ease}
+@keyframes drop{from{transform:translateY(-20px) rotate(1deg);opacity:0}}
+.cert::before{content:"";position:absolute;inset:9px;border:2px solid var(--red);pointer-events:none}
+.cert h2{font-family:'Times New Roman',serif;font-weight:normal;text-align:center;letter-spacing:.18em;text-transform:uppercase;margin:0 0 4px;font-size:1.05rem}
+.cert .name{text-align:center;font-size:2rem;font-style:italic;margin:14px 0;font-family:'Brush Script MT','Segoe Script',cursive}
+.cert ul{list-style:none;padding:0;margin:0 0 18px}
+.cert li{padding:7px 0;border-bottom:1px dashed #b5ab90;font-style:italic}
+.cert .seal{position:absolute;right:26px;bottom:22px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c23,#6a0a0a);box-shadow:inset 0 0 14px rgba(0,0,0,.5),0 6px 14px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:#f3d9d9;font-size:.6rem;text-align:center;letter-spacing:.1em;transform:rotate(-8deg)}

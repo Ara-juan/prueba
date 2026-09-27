@@ -1,0 +1,37 @@
+/* Scrapbook: Álbum de Recortes · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--paper:#f8f2e4;--ink:#4a4038}
+html,body{min-height:100%}
+body{margin:0;background:#c9b896;display:flex;align-items:center;justify-content:center;padding:30px 14px;font-family:'Segoe Script','Segoe UI',cursive;color:var(--ink)}
+.book{position:relative;width:min(660px,96vw);background:linear-gradient(160deg,var(--paper),#efe6d0);border-radius:8px;box-shadow:0 30px 80px rgba(60,40,10,.45),inset 0 0 60px rgba(160,130,80,.12);padding:38px 30px 46px;min-height:560px}
+/* Espiral del cuaderno */
+.spiral{position:absolute;top:-16px;left:50%;transform:translateX(-50%);display:flex;gap:26px}
+.spiral i{width:10px;height:34px;border:3px solid #8a8a92;border-radius:6px;background:linear-gradient(180deg,#c9c9d2,#8a8a92);transform:rotate(4deg)}
+@media (max-width:600px){.spiral{gap:14px}}
+.washi{position:absolute;width:96px;height:28px;opacity:.8;box-shadow:0 2px 6px rgba(0,0,0,.2);pointer-events:none}
+.washi.pink{background:repeating-linear-gradient(45deg,rgba(255,154,190,.85) 0 8px,rgba(255,190,215,.85) 8px 16px)}
+.washi.mint{background:repeating-linear-gradient(45deg,rgba(140,220,190,.85) 0 8px,rgba(180,235,210,.85) 8px 16px);transform:rotate(3deg)}
+/* Foto polaroid pegada */
+.photo{position:absolute;width:170px;background:#fff;padding:9px 9px 34px;box-shadow:0 10px 26px rgba(60,40,10,.3);cursor:grab;touch-action:none;user-select:none}
+.photo:active{cursor:grabbing}
+.photo .img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,#ffe0ec,#d4ecff)}
+.photo figcaption{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-align:center;margin-top:8px;color:#6a6a72}
+/* Notas y sellos arrastrables */
+.note{position:absolute;padding:12px 14px;width:150px;font-size:.82rem;line-height:1.7;box-shadow:0 8px 20px rgba(60,40,10,.25);cursor:grab;touch-action:none;user-select:none}
+.note.y{background:#fff3b8;transform:rotate(-3deg)}
+.note.p{background:#ffd9e4;transform:rotate(2deg)}
+.stamp{position:absolute;border:2.5px dashed #d88888;border-radius:50%;width:86px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d88888;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;transform:rotate(-10deg);cursor:grab;touch-action:none;background:rgba(255,255,255,.5);user-select:none}
+.stamp b{font-size:1.3rem}
+.hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#6a5a3a;font-size:.72rem;font-family:Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.7}

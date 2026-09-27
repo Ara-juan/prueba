@@ -1,0 +1,42 @@
+/* Cerradura de Combinación · Plantilla dedicatoria interactiva */
+/* Base compartida (reset mínimo + accesibilidad) */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img,svg,canvas{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+a{color:inherit}
+/* Respeta la preferencia del usuario de menos movimiento */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* Foco visible para navegación por teclado */
+:focus-visible{outline:2.5px solid #7ad0ff;outline-offset:2px}
+/* Alias manuscrito: si el sistema no trae Segoe Script / Brush Script MT, usa Caveat (webfont) */
+@font-face{font-family:'Segoe Script';src:local('Segoe Script'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Brush Script MT';src:local('Brush Script MT'),url('https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjcN9SIKjYBxPigs.woff2') format('woff2');font-display:swap}
+:root{--metal:#8a8a94;--dark:#3a3a44;--ink:#e8e4dc}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at 50% 30%,#2a2a32,#16161c 75%);color:var(--ink);font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;user-select:none}
+.safe{position:relative;width:min(340px,88vw);background:linear-gradient(160deg,#5a5a64,#3a3a44);border-radius:18px;padding:30px 24px;box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 2px 0 rgba(255,255,255,.15);text-align:center}
+.safe h1{margin:0 0 4px;font-size:.95rem;letter-spacing:.3em;text-transform:uppercase;color:#c9c4b8}
+.safe .sub{font-size:.75rem;opacity:.6;margin-bottom:20px;font-style:italic}
+.dials{display:flex;justify-content:center;gap:14px;margin-bottom:18px}
+.dial-col{display:flex;flex-direction:column;align-items:center;gap:8px}
+.dial{width:74px;height:74px;border-radius:50%;background:conic-gradient(#c9c4b8,#7a7a84,#c9c4b8,#5a5a64,#c9c4b8);position:relative;cursor:grab;touch-action:none;box-shadow:0 8px 18px rgba(0,0,0,.5),inset 0 0 0 4px #2a2a32;transition:transform .45s cubic-bezier(.3,1.4,.4,1)}
+.dial:active{cursor:grabbing}
+.dial .num{position:absolute;left:50%;top:8px;transform:translateX(-50%);font-weight:900;font-size:1.3rem;color:#2a2a32;font-family:'Courier New',monospace}
+.dial .mark{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:.9rem;color:#ffd23c}
+.dial-arrows{display:flex;gap:8px;justify-content:center}
+.dial-arrows button{width:34px;height:30px;background:#4a4a54;border:none;border-radius:7px;color:#e8e4dc;font-size:.9rem;cursor:pointer;box-shadow:0 3px 0 #26262e}
+.dial-arrows button:active{transform:translateY(2px);box-shadow:none}
+.status{min-height:1.4em;font-size:.85rem;opacity:.85}
+.status.err{color:#ff8a8a}
+.status.ok{color:#8affb0}
+.handle{width:54px;height:54px;border-radius:50%;border:7px solid #6a6a74;margin:6px auto 0;background:conic-gradient(#8a8a94,#5a5a64,#8a8a94);box-shadow:0 6px 14px rgba(0,0,0,.5);transition:transform 1s cubic-bezier(.4,0,.2,1)}
+.handle.open{transform:rotate(720deg)}
+/* Contenido de la caja fuerte */
+.content{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,10,14,.9);z-index:20;padding:20px}
+.content.show{display:flex}
+.content .card{max-width:400px;background:#f7f0e0;color:#4a3c28;border-radius:16px;padding:32px 30px;text-align:center;font-family:Georgia,serif;animation:openUp .6s cubic-bezier(.2,1.3,.3,1)}
+@keyframes openUp{from{transform:translateY(50px) rotateX(18deg);opacity:0}}
+.content .big{font-size:3rem}
+.content h2{margin:12px 0 8px;font-weight:normal;color:#8a6a2a}
+.content p{line-height:1.9;margin:0;font-style:italic}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sopa de Letras del Amor</title>
+  <meta name="description" content="Encuentra las palabras clave (tu risa, fechas, lugares) arrastrando sobre la cuadrícula. · Plantilla dedicatoria interactiva">
+  <meta name="theme-color" content="#14101c">
+  <!-- Open Graph: vista previa elegante al compartir por WhatsApp/redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sopa de Letras del Amor · Una dedicatoria para ti">
+  <meta property="og:description" content="Encuentra las palabras clave (tu risa, fechas, lugares) arrastrando sobre la cuadrícula.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>🔍 Sopa de letras del corazón</h1>
+  <p>Arrastra el cursor sobre las letras para marcar palabras (también funciona tocando celda a celda)</p>
+</header>
+<div class="words" id="wordList"></div>
+<div class="grid" id="grid"></div>
+<div class="bar"><i id="bar"></i></div>
+<p class="congrats" id="congrats">¡Todas encontradas! El mensaje secreto era obvio: te quiero. ♥</p>
+  <!-- DEDIC: personalización por URL/localStorage + editor flotante (¿?para=…&de=…) -->
+  <script src="dedic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
