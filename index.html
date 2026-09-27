@@ -37,6 +37,29 @@ section h2 span{color:var(--sub);font-size:.85rem;font-style:italic}
 .card .share{display:inline-block;margin-top:10px;font-size:.68rem;letter-spacing:.12em;color:var(--sub);border-top:1px dashed #2c2844;padding-top:8px;width:100%}
 .card:hover .share{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* AJUSTES PARA EL BOTÓN DE SOBRE / SELLO FLOTANTE */
+.btn-sobre, .sello-cariño, .stamp, #sello, [class*="sello"], [class*="sobre"] {
+  position: fixed !important;
+  bottom: 85px !important; /* Elevado para evitar colisión con el badge de Netlify */
+  right: 25px !important;
+  width: 75px !important;  /* Tamaño ampliado para facilitar la interacción */
+  height: 75px !important;
+  font-size: 1.5rem !important;
+  z-index: 99999 !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-sobre:hover, .sello-cariño:hover, .stamp:hover, #sello:hover {
+  transform: scale(1.15) !important;
+}
+
+/* Oculta la insignia de Netlify si interfiere visualmente */
+[data-netlify-badge], .netlify-badge, iframe[src*="netlify"] {
+  display: none !important;
+}
 </style>
 </head>
 <body>
